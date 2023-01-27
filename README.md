@@ -17,3 +17,8 @@ git push -u origin main
 git remote add origin https://github.com/PedroMJ23/Web-Panda-Diet-JS.git
 git branch -M main
 git push -u origin main
+
+
+git checkout main
+git checkout dev
+
