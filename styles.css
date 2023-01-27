@@ -7,12 +7,40 @@
     font-family: Arial, Helvetica, sans-serif;
     text-transform: capitalize;
     scroll-behavior: smooth;
+    scroll-padding-top: 75px;
+}
+
+.body_container {
+    /* background: grey;*/
 }
 
 .img_navbar {
     height: 80px;
     width: 80px;
     cursor: pointer;
+}
+
+.cart {
+    display: none;
+}
+
+.cart_show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 83px;
+    right: 0;
+    background-color: white;
+    min-width: 350px;
+    min-height: 350px;
+    gap: 25px;
+    border-left: 3px solid rgb(14, 142, 26);
+    border-bottom: 3px solid rgb(14, 142, 26);
+    border-right: 3px solid rgb(14, 142, 26);
+    border-radius: 0px 0px 15px 15px;
+
 }
 
 .menu_icono-header {
@@ -59,6 +87,27 @@
     width: 30px;
     cursor: pointer;
     display: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 83px;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+    /*Para que quede por encima del resto de las cosas*/
+
+    /*Efecto de Glassmorphismo*/
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: none;
+}
+
+.show-overlay {
+    display: block;
 }
 
 .hidden {
@@ -209,7 +258,7 @@ main {
     gap: 40px;
     flex-wrap: wrap;
     max-width: 1200px;
-   
+
 }
 
 .icono_añadir {
@@ -375,10 +424,12 @@ footer {
         border-radius: 0px 0px 15px 15px;
 
     }
-    .cart{
+
+    .cart {
         display: none;
     }
-    .cart_show{
+
+    .cart_show {
         display: flex;
         align-items: center;
         justify-content: center;

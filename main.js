@@ -16,6 +16,9 @@ const overlay = document.querySelector(".overlay");
 const successModal = document.querySelector(".add-modal");
 const deleteBtn = document.querySelector(".btn-delete");
 
+const iconoPandaNav = document.querySelector('.img_navbar')
+const cambiarColorBody = document.querySelector('.body_container');
+
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -116,16 +119,31 @@ const aplicarFiltro = (e) => {
 const toggleMenu = ()=>{
  barsMenu.classList.toggle('nav_ul_show');
  if(cartMenu.classList.contains('cart_show')){
+    cartMenu.classList.remove('cart_show')
     cartMenu.classList.add('cart')
-    return
+        return
  }
+ overlay.classList.toggle('show-overlay')
+ 
 
 
  console.log('tocando el boton de menu')
 }
 
 const toggleCart = ()=>{
-    cartBtn
+    cartMenu.classList.toggle('cart_show');
+    if(barsMenu.classList.contains('nav_ul_show')){
+        barsMenu.classList.remove('nav_ul_show')
+        barsMenu.classList.add('nav_ul')
+        return  
+    }
+    overlay.classList.toggle('show-overlay')
+
+}
+
+const toggleBody = ()=>{
+    cambiarColorBody.classList.toggle('body_container');
+
 
 }
 
@@ -136,6 +154,8 @@ function init() {
     categorias.addEventListener('click', aplicarFiltro);
     barsBtn.addEventListener('click', toggleMenu);
     cartBtn.addEventListener('click', toggleCart);
+    //iconoPandaNav.addEventListener('click', toggleBody);
+
 
 }
 
