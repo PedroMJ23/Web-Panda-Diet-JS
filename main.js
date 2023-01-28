@@ -10,7 +10,7 @@ const buyBtn = document.querySelector(".btn-buy");
 const cartBubble = document.querySelector(".cart-bubble");
 const cartBtn = document.querySelector(".icono_carrito");
 const cartMenu = document.querySelector(".cart");
-const barsBtn = document.querySelector(".icono_menu"); /*.menu-label*/ 
+const barsBtn = document.querySelector(".icono_menu"); /*.menu-label*/
 const barsMenu = document.querySelector(".nav_ul");
 const overlay = document.querySelector(".overlay");
 const successModal = document.querySelector(".add-modal");
@@ -73,26 +73,26 @@ const showMoreProducts = () => {
     }
 }
 
-changeActiveState = (selectedCategory) =>{
+changeActiveState = (selectedCategory) => {
     const categories = [...listaDeCategorias];
     categories.forEach(categoryBtn => {
-        if(categoryBtn.dataset.categoria !== selectedCategory){
+        if (categoryBtn.dataset.categoria !== selectedCategory) {
             categoryBtn.classList.remove('active-btn');
-            
-        }else{
+
+        } else {
             categoryBtn.classList.add('active-btn');
         }
     })
 }
-const changeShowMoreBtnState = (selectedCategory)=>{
-    if(!selectedCategory){
+const changeShowMoreBtnState = (selectedCategory) => {
+    if (!selectedCategory) {
         btnLoad.classList.remove('hidden');
         return;
     }
     btnLoad.classList.add('hidden');
 }
 
-changeFilterState = (selectedCategory)=>{
+changeFilterState = (selectedCategory) => {
     changeActiveState(selectedCategory);
     changeShowMoreBtnState(selectedCategory);
 }
@@ -105,45 +105,67 @@ const aplicarFiltro = (e) => {
     if (!clickedCategory) {
         products.innerHTML = '';
         renderProducts();
-       
+
         console.log('no hay categoria')
     } else {
         renderProducts(0, clickedCategory)
-        
+
         productsController.nextProductsIndex = 1;
     }
 
 
 }
 
-const toggleMenu = ()=>{
- barsMenu.classList.toggle('nav_ul_show');
- if(cartMenu.classList.contains('cart_show')){
-    cartMenu.classList.remove('cart_show')
-    cartMenu.classList.add('cart')
+const toggleMenu = () => {
+    barsMenu.classList.toggle('nav_ul_show');
+    if (cartMenu.classList.contains('cart_show')) {
+        cartMenu.classList.remove('cart_show')
+        cartMenu.classList.add('cart')
         return
- }
- overlay.classList.toggle('show-overlay')
- 
+    }
+    overlay.classList.toggle('show-overlay')
 
 
- console.log('tocando el boton de menu')
+
+    console.log('tocando el boton de menu')
 }
 
-const toggleCart = ()=>{
+const toggleCart = () => {
     cartMenu.classList.toggle('cart_show');
-    if(barsMenu.classList.contains('nav_ul_show')){
+    if (barsMenu.classList.contains('nav_ul_show')) {
         barsMenu.classList.remove('nav_ul_show')
         barsMenu.classList.add('nav_ul')
-        return  
+        return
     }
     overlay.classList.toggle('show-overlay')
 
 }
 
-const toggleBody = ()=>{
+const toggleBody = () => {
     cambiarColorBody.classList.toggle('body_container');
 
+
+}
+const ocultarAlAClickear = (e) => {
+    if (!e.target.classList.contains('nav_a')) return;
+    barsMenu.classList.remove("nav_ul_show");
+    overlay.classList.remove('show-overlay');
+
+}
+const ocultarAlClickear = () => {
+    cartMenu.classList.remove('cart_show');
+    barsMenu.classList.remove("nav_ul_show");
+    overlay.classList.remove('show-overlay');
+
+}
+const ocultarOverlay = () => {
+    if (
+        !barsMenu.classList.contains('nav_ul_show') && // si no se muestra el menu
+        !cartMenu.classList.contains('cart_show')      // si no se muestra el carro
+    ) return;                                          //no hagas nada
+    barsMenu.classList.remove("nav_ul_show");
+    cartMenu.classList.remove("cart_show");
+    overlay.classList.remove("show-overlay");
 
 }
 
@@ -155,6 +177,10 @@ function init() {
     barsBtn.addEventListener('click', toggleMenu);
     cartBtn.addEventListener('click', toggleCart);
     //iconoPandaNav.addEventListener('click', toggleBody);
+
+    barsMenu.addEventListener('click', ocultarAlAClickear);
+    overlay.addEventListener('click', ocultarAlClickear);
+    window.addEventListener('scroll', ocultarOverlay);
 
 
 }
