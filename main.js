@@ -169,6 +169,10 @@ const ocultarOverlay = () => {
 
 }
 
+function iniciarChatear(){
+    var productswsp= ['zapato', 'mesa', 'silla']
+    window.location.href = 'https://wa.me/+54221533900930/?text=Hola.Quiero hacer un pedido...' +''+productswsp[0]
+}
 
 function init() {
     renderProducts()
