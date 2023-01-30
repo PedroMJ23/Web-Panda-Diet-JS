@@ -18,7 +18,8 @@ const deleteBtn = document.querySelector(".btn-delete");
 
 const iconoPandaNav = document.querySelector('.img_navbar')
 const cambiarColorBody = document.querySelector('.body_container');
-
+const agregarProducto = document.querySelector('.icono_añadir');
+const productosCard = document.querySelector('.productos');
 
 
 
@@ -208,6 +209,12 @@ const obtenerElPrecioTotal = ()=>{
 const mostrarElTotal = ()=>{
     carritoPrecioTotal.innerHTML = `<span> ${obtenerElPrecioTotal().toFixed(2)} ARS </span>`
 }
+const añadirAlCarrito = (e)=>{
+    if(!e.target.classList.contains('icono_añadir')) return;
+    console.log('estas añadiendo este producto')
+    
+
+}
 
 function init() {
     renderProducts()
@@ -220,8 +227,10 @@ function init() {
     barsMenu.addEventListener('click', ocultarAlAClickear);
     overlay.addEventListener('click', ocultarAlClickear);
     window.addEventListener('scroll', ocultarOverlay);
+    
     document.addEventListener('DOMContentLoaded', renderizarCarrito);
     document.addEventListener('DOMContentLoaded', mostrarElTotal)
+    products.addEventListener('click', añadirAlCarrito)
 
 
 }
