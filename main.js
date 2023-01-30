@@ -27,14 +27,22 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const saveLocalStorage = cartList => localStorage.setItem('cart', JSON.stringify(cartList));
 
-const renderProduct = ({ nombre, precio, categoria, imagen, cantidad }) => {
+const renderProduct = ({ id,nombre, precio, categoria, imagen, cantidad }) => {
     return `
     <div class="productos">
     <div class="card_title">${nombre}</div>
     <div class="card_"><img src="${imagen}" alt="" id="img_card_"></div>
     <div class="descripcion_item">
         <p class="nombre_item">${categoria}</p> <span class="precio_item">${precio}</span>
-        <img src="./assets/añadir_al_carrito.png" class="icono_añadir" alt="" srcset="">
+        
+        <button class="icono_añadir" 
+        data-id='${id}' 
+            data-nombre='${nombre}' 
+            data-precio='${precio}' 
+            data-categoria='${categoria}' 
+            data-imagen='${imagen}' 
+            data-cantidad='${cantidad}'>Agregar</button>
+        
     </div>
 
 </div> 
@@ -172,12 +180,12 @@ const ocultarOverlay = () => {
 
 }
 
-function iniciarChatear(){
-    var productswsp= ['zapato', 'mesa', 'silla']
-    window.location.href = 'https://wa.me/+54221533900930/?text=Hola.Quiero hacer un pedido...' +''+productswsp[0]
+function iniciarChatear() {
+    var productswsp = ['zapato', 'mesa', 'silla']
+    window.location.href = 'https://wa.me/+54221533900930/?text=Hola.Quiero hacer un pedido...' + '' + productswsp[0]
 }
 
-const renderizarProductosDelCarrito = ({nombre, precio, imagen})=>{
+const renderizarProductosDelCarrito = ({ nombre, precio, imagen }) => {
     return `
     <div class="carrito-contenedor">
                     <p>${nombre}</p>
@@ -191,8 +199,8 @@ const renderizarProductosDelCarrito = ({nombre, precio, imagen})=>{
     `
 }
 
-const renderizarCarrito = ()=>{
-    if(!cart.length){
+const renderizarCarrito = () => {
+    if (!cart.length) {
         productsCart.innerHTML = `<span>No seleccionaste ningún producto </span>`;
         //console.log('no hay nada en el carrito')
         return;
@@ -200,19 +208,35 @@ const renderizarCarrito = ()=>{
     productsCart.innerHTML = cart.map(renderizarProductosDelCarrito).join('');
 }
 
-const obtenerElPrecioTotal = ()=>{
-    return cart.reduce((acumulador, valorActual)=>{acumulador + Number(valorActual.precio) * valorActual.cantidad,0
+const obtenerElPrecioTotal = () => {
+    return cart.reduce((acumulador, valorActual) => {
+        acumulador + Number(valorActual.precio) * valorActual.cantidad, 0
 
     })
 }
 
-const mostrarElTotal = ()=>{
+const mostrarElTotal = () => {
     carritoPrecioTotal.innerHTML = `<span> ${obtenerElPrecioTotal().toFixed(2)} ARS </span>`
 }
-const añadirAlCarrito = (e)=>{
-    if(!e.target.classList.contains('icono_añadir')) return;
+
+const ExisteElProducto = ({ id }) => cart.some(item => item.id === id);
+
+const añadirAlCarrito = (e) => {
+    if (!e.target.classList.contains('icono_añadir')) return;
     console.log('estas añadiendo este producto')
-    
+
+    const { id, nombre, precio, imagen } = e.target.dataset;
+
+    const productoParaElCarrito = { id, nombre, precio, imagen };
+
+    if (ExisteElProducto(productoParaElCarrito)) {
+        //añadimos otra unidad del producto seleccionado
+        //mostramos el mensaje de que fue añadido
+    } else {
+        //agregamos el producto al carrito
+        //mostramos el msj de que el producto fue agregado
+    }
+
 
 }
 
@@ -227,10 +251,10 @@ function init() {
     barsMenu.addEventListener('click', ocultarAlAClickear);
     overlay.addEventListener('click', ocultarAlClickear);
     window.addEventListener('scroll', ocultarOverlay);
-    
+
     document.addEventListener('DOMContentLoaded', renderizarCarrito);
-    document.addEventListener('DOMContentLoaded', mostrarElTotal)
-    products.addEventListener('click', añadirAlCarrito)
+    document.addEventListener('DOMContentLoaded', mostrarElTotal);
+    products.addEventListener('click', añadirAlCarrito);
 
 
 }
