@@ -1,6 +1,6 @@
 const products = document.querySelector('.nuestros_productos-div');
 const productsCart = document.querySelector('.carrito-contenedor');
-const cartTotal = document.querySelector('.cart_total');
+const carritoPrecioTotal = document.querySelector('.total');
 const categorias = document.querySelector('.categorias');
 const listaDeCategorias = document.querySelectorAll('.categorias_filtro');
 
@@ -176,10 +176,11 @@ function iniciarChatear(){
     window.location.href = 'https://wa.me/+54221533900930/?text=Hola.Quiero hacer un pedido...' +''+productswsp[0]
 }
 
-const renderizarProductosDelCarrito = ({nombre, precio})=>{
+const renderizarProductosDelCarrito = ({nombre, precio, imagen})=>{
     return `
     <div class="carrito-contenedor">
                     <p>${nombre}</p>
+                    <img src="${imagen}" class="img-carrito" alt="ImagenDelProducto" srcset="">
                     <span>_______________</span>
                     <div class="carrito-total">
                         <p>Total:</p>
@@ -198,6 +199,16 @@ const renderizarCarrito = ()=>{
     productsCart.innerHTML = cart.map(renderizarProductosDelCarrito).join('');
 }
 
+const obtenerElPrecioTotal = ()=>{
+    return cart.reduce((acumulador, valorActual)=>{acumulador + Number(valorActual.precio) * valorActual.cantidad,0
+
+    })
+}
+
+const mostrarElTotal = ()=>{
+    carritoPrecioTotal.innerHTML = `<span> ${obtenerElPrecioTotal().toFixed(2)} ARS </span>`
+}
+
 function init() {
     renderProducts()
     btnLoad.addEventListener('click', showMoreProducts);
@@ -209,7 +220,8 @@ function init() {
     barsMenu.addEventListener('click', ocultarAlAClickear);
     overlay.addEventListener('click', ocultarAlClickear);
     window.addEventListener('scroll', ocultarOverlay);
-    document.addEventListener('DOMContentLoaded', renderizarCarrito)
+    document.addEventListener('DOMContentLoaded', renderizarCarrito);
+    document.addEventListener('DOMContentLoaded', mostrarElTotal)
 
 
 }
