@@ -5,7 +5,7 @@
     text-decoration: none;
     list-style: none;
     font-family: Arial, Helvetica, sans-serif;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     scroll-behavior: smooth;
     scroll-padding-top: 75px;
 }

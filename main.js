@@ -1,5 +1,5 @@
 const products = document.querySelector('.nuestros_productos-div');
-const productsCart = document.querySelector('cart-container');
+const productsCart = document.querySelector('.carrito-contenedor');
 const cartTotal = document.querySelector('.cart_total');
 const categorias = document.querySelector('.categorias');
 const listaDeCategorias = document.querySelectorAll('.categorias_filtro');
@@ -18,6 +18,8 @@ const deleteBtn = document.querySelector(".btn-delete");
 
 const iconoPandaNav = document.querySelector('.img_navbar')
 const cambiarColorBody = document.querySelector('.body_container');
+
+
 
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -174,6 +176,28 @@ function iniciarChatear(){
     window.location.href = 'https://wa.me/+54221533900930/?text=Hola.Quiero hacer un pedido...' +''+productswsp[0]
 }
 
+const renderizarProductosDelCarrito = ({nombre, precio})=>{
+    return `
+    <div class="carrito-contenedor">
+                    <p>${nombre}</p>
+                    <span>_______________</span>
+                    <div class="carrito-total">
+                        <p>Total:</p>
+                        <span class="total">${precio}</span>
+                    </div>
+                </div>
+    `
+}
+
+const renderizarCarrito = ()=>{
+    if(!cart.length){
+        productsCart.innerHTML = `<span>No seleccionaste ningún producto </span>`;
+        //console.log('no hay nada en el carrito')
+        return;
+    }
+    productsCart.innerHTML = cart.map(renderizarProductosDelCarrito).join('');
+}
+
 function init() {
     renderProducts()
     btnLoad.addEventListener('click', showMoreProducts);
@@ -185,6 +209,7 @@ function init() {
     barsMenu.addEventListener('click', ocultarAlAClickear);
     overlay.addEventListener('click', ocultarAlClickear);
     window.addEventListener('scroll', ocultarOverlay);
+    document.addEventListener('DOMContentLoaded', renderizarCarrito)
 
 
 }
