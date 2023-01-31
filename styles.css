@@ -241,6 +241,7 @@ main {
     align-items: center;
     justify-content: center;
     margin: 15px auto;
+    flex-wrap: wrap;
 }
 
 .categorias_filtro {
