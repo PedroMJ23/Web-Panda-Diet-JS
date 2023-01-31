@@ -282,8 +282,16 @@ main {
 
 .icono_añadir {
     height: 40px;
-    width: 40px;
+    width: 75px;
     cursor: pointer;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin: 5px;
+    background: linear-gradient(0deg, rgba(17, 136, 15, 1) 0%, rgba(43, 251, 224, 1) 100%);
+    
+   /* color: white; */
+   color: black;
 }
 
 .productos {
