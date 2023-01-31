@@ -44,20 +44,22 @@
     font-weight: 400;
 
 }
-.cart_show button{
+
+.cart_show button {
     height: 40px;
     width: 120px;
     border-radius: 10px;
     border: 3px solid white;
-    background: linear-gradient(0deg, rgba(17,136,15,1) 0%, rgba(43,251,224,1) 100%);
+    background: linear-gradient(0deg, rgba(17, 136, 15, 1) 0%, rgba(43, 251, 224, 1) 100%);
     color: white;
     text-shadow: 2px 2px 5px black;
     padding: 5px;
     font-size: 15px;
     cursor: pointer;
-    
+
 }
-.img-carrito{
+
+.img-carrito {
     height: 50px;
     width: 50px;
 }
@@ -99,7 +101,6 @@
     padding: 5px;
 
 }
-
 
 .icono_menu {
     height: 35px;
@@ -208,9 +209,6 @@ main {
     height: 700px;
     width: 100%;
     margin: 70px 15px 15px 15px;
-    /* background: url(./assets/comida-saludable.png); */
-    /* background-position: center;
-    background-size: cover; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -228,7 +226,7 @@ main {
     position: absolute;
     top: 30px;
     z-index: 1000;
-
+   
 }
 
 .portada_img {
@@ -277,7 +275,7 @@ main {
     margin: 15px;
     gap: 40px;
     flex-wrap: wrap;
-    max-width: 1200px;
+    /*max-width: 1200px;*/
 
 }
 
@@ -368,6 +366,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     min-height: 100px;
+   /* width: 100%;*/
     background: rgb(18, 136, 30);
     /* background: linear-gradient(0deg, rgba(17,136,15,1) 0%, rgba(43,251,224,1) 100%); */
 }
@@ -376,10 +375,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0px 450px;
     padding: 5px;
-    width: 100%;
-    float: left;
+    /* width: 100%; */
+    /* float: left; */
 
 }
 
@@ -469,4 +467,28 @@ footer {
 
 
     }
+}
+
+@media screen and (max-width: 575px) {
+    .portada {
+        background-color: red;
+        height: 500px;
+        width: 100%;
+        margin: 75px auto;
+        
+    }
+
+    .logo_portada {
+        height: 350px;
+        width: 350px;
+    }
+
+    .portada_img {
+        height: 500px;
+        width: 100%;
+        z-index: 500;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
