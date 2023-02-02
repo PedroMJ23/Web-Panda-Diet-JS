@@ -226,7 +226,7 @@ main {
     position: absolute;
     top: 30px;
     z-index: 1000;
-   
+
 }
 
 .portada_img {
@@ -234,6 +234,19 @@ main {
     width: 100%;
     z-index: 500;
     /* margin: 15px 7%; */
+}
+
+.sobre_nosotros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px 15px;
+    text-align: justify;
+    font-size: 18px;
+    gap: 15px;
+
 }
 
 .categorias {
@@ -289,9 +302,9 @@ main {
     border: 1px solid white;
     margin: 5px;
     background: linear-gradient(0deg, rgba(17, 136, 15, 1) 0%, rgba(43, 251, 224, 1) 100%);
-    
-   /* color: white; */
-   color: black;
+
+    /* color: white; */
+    color: black;
 }
 
 .productos {
@@ -372,10 +385,10 @@ main {
 
 footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     min-height: 100px;
-   /* width: 100%;*/
+    width: 100%;
     background: rgb(18, 136, 30);
     /* background: linear-gradient(0deg, rgba(17,136,15,1) 0%, rgba(43,251,224,1) 100%); */
 }
@@ -384,9 +397,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-width: 70%;
     padding: 5px;
-    /* width: 100%; */
-    /* float: left; */
+    /* background-color: red; */
+    flex-wrap: wrap;
+
 
 }
 
@@ -394,12 +409,23 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0px 10px;
+    margin: 10px auto;
     padding: 5px;
 }
 
 .redes1 {
     margin: 0px 35px;
+
+    /* background-color: red; */
+}
+
+.ubicacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    margin: 10px auto;
+
 }
 
 .card_ {
@@ -426,7 +452,7 @@ footer {
         margin: auto 10px;
     }
 
-   
+
     .nav_ul {
         display: none;
     }
@@ -449,42 +475,83 @@ footer {
         border-radius: 0px 0px 15px 15px;
 
     }
-    .portada{
+
+    .portada {
         height: 500px;
-        
+
     }
+
     .logo_portada {
         height: 500px;
         width: 500px;
     }
+
     .portada_img {
         height: 600px;
-        
+
     }
 
-   
+    .sobre_nosotros {
+        margin: 75px 15px 10px 15px;
+    }
+
+
 }
 
 @media screen and (max-width: 575px) {
     .portada {
         /* background-color: red; */
-        height: 400px;
+        height: 300px;
         width: 100%;
-        margin: 75px auto;
-        
+        margin: 75px auto 10px auto;
+
     }
 
     .logo_portada {
-        height: 350px;
-        width: 350px;
+        height: 250px;
+        width: 250px;
     }
 
     .portada_img {
-        height: 400px;
+        height: 300px;
         width: 100%;
         z-index: 500;
         margin-left: auto;
         margin-right: auto;
     }
+
+    .productos {
+        height: 300px;
+        width: 250px;
+
+        border: 2px solid rgb(14, 142, 26);
+        border-radius: 2em;
+
+        font-size: 18px;
+        font-weight: 600;
+        padding: 15px;
+        gap: 10px;
+
+
+    }
+
+    .card_ {
+        height: 200px;
+        width: 200px;
+        overflow: hidden;
+        /*background-color: red;*/
+    }
+
+    #img_card_ {
+        width: 100%;
+        height: 100%;
+
+        border-radius: 2em;
+    }
+    .sobre_nosotros {
+        margin: auto 10px;
+    }
+
+
 
 }
