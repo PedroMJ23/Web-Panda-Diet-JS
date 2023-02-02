@@ -426,10 +426,7 @@ footer {
         margin: auto 10px;
     }
 
-    .navbar {
-        /*display: none;*/
-    }
-
+   
     .nav_ul {
         display: none;
     }
@@ -452,30 +449,20 @@ footer {
         border-radius: 0px 0px 15px 15px;
 
     }
-
-    .cart {
-        display: none;
+    .portada{
+        height: 500px;
+        
+    }
+    .logo_portada {
+        height: 500px;
+        width: 500px;
+    }
+    .portada_img {
+        height: 600px;
+        
     }
 
-    .cart_show {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        position: absolute;
-        top: 83px;
-        right: 0;
-        background-color: white;
-        min-width: 350px;
-        min-height: 350px;
-        gap: 25px;
-        border-left: 3px solid rgb(14, 142, 26);
-        border-bottom: 3px solid rgb(14, 142, 26);
-        border-right: 3px solid rgb(14, 142, 26);
-        border-radius: 0px 0px 15px 15px;
-
-
-    }
+   
 }
 
 @media screen and (max-width: 575px) {
