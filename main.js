@@ -272,9 +272,11 @@ const renderBurbujaDelCarro = () => {
 
   const vaciarCarrito = ()=>{
     cart = [];
+    saveLocalStorage(cart)
     console.log('quitando elementos del carrito')
     productsCart.innerHTML = `<span>No seleccionaste ningún producto </span>`;
     carritoPrecioTotal.textContent = '0.00ARS'
+    cartBubble.textContent = '0'
 
     
   }
