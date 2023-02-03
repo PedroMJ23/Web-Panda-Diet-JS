@@ -20,6 +20,8 @@ const iconoPandaNav = document.querySelector('.img_navbar')
 const cambiarColorBody = document.querySelector('.body_container');
 const agregarProducto = document.querySelector('.icono_añadir');
 const productosCard = document.querySelector('.productos');
+const comprar = document.querySelector('#comprarId');
+const borrarTodo = document.querySelector('.borrar_todo-btn')
 
 
 
@@ -27,7 +29,7 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const saveLocalStorage = cartList => localStorage.setItem('cart', JSON.stringify(cartList));
 
-const renderProduct = ({ id,nombre, precio, categoria, imagen, cantidad }) => {
+const renderProduct = ({ id, nombre, precio, categoria, imagen, cantidad }) => {
     return `
     <div class="productos">
     <div class="card_title">${nombre}</div>
@@ -211,21 +213,29 @@ const renderizarCarrito = () => {
 const obtenerElPrecioTotal = () => {
     return cart.reduce(
         (accum, currentValue) =>
-          accum + Number(currentValue.precio) * currentValue.cantidad,
+            accum + Number(currentValue.precio) * currentValue.cantidad,
         0
-      );
+    );
 }
 
 const mostrarElTotal = () => {
     carritoPrecioTotal.innerHTML = `${obtenerElPrecioTotal().toFixed(2)} ARS`;
-   
+
 }
 
 const ExisteElProducto = ({ id }) => cart.some(item => item.id === id);
 
 const productoDelCarrito = (product) => {
     cart = [...cart, { ...product, cantidad: 1 }];
-  };
+};
+
+const mostrarMensajeDeCompra = (msg) => {
+    successModal.classList.add("active-modal");
+    successModal.textContent = msg;
+    setTimeout(() => {
+        successModal.classList.remove("acive-modal");
+    }, 1500);
+}
 
 const añadirAlCarrito = (e) => {
     if (!e.target.classList.contains('icono_añadir')) return;
@@ -242,15 +252,41 @@ const añadirAlCarrito = (e) => {
         //agregamos el producto al carrito
         productoDelCarrito(productoParaElCarrito)
         //mostramos el msj de que el producto fue agregado
+        mostrarMensajeDeCompra('El producto se ha agregado con éxito')
     }
 
     checkProd()
 
 
 }
+const desabilitarBtn = (button) => {
+    if (!cart.length) {
+        button.classList.add('desabilitado')
+    } else {
+        button.classList.remove('desabilitado');
+    }
+}
+const renderBurbujaDelCarro = () => {
+    cartBubble.textContent = cart.reduce((acc, cur) => acc + cur.cantidad, 0);
+  };
 
-const checkProd =()=>{
+  const vaciarCarrito = ()=>{
+    cart = [];
+    console.log('quitando elementos del carrito')
+    productsCart.innerHTML = `<span>No seleccionaste ningún producto </span>`;
+    carritoPrecioTotal.textContent = '0.00ARS'
+
+    
+  }
+const checkProd = () => {
     saveLocalStorage(cart)
+    renderizarCarrito();
+    mostrarElTotal();
+    desabilitarBtn(comprar);
+    renderBurbujaDelCarro();
+    
+
+
 }
 
 function init() {
@@ -268,6 +304,7 @@ function init() {
     document.addEventListener('DOMContentLoaded', renderizarCarrito);
     document.addEventListener('DOMContentLoaded', mostrarElTotal);
     products.addEventListener('click', añadirAlCarrito);
+    borrarTodo.addEventListener('click', vaciarCarrito)
 
 
 }

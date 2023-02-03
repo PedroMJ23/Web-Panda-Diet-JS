@@ -30,11 +30,13 @@
     justify-content: center;
     flex-direction: column;
     position: absolute;
+    overflow: scroll;
     top: 83px;
     right: 0;
     background-color: white;
     min-width: 350px;
     min-height: 350px;
+   
     gap: 25px;
     border-left: 3px solid rgb(14, 142, 26);
     border-bottom: 3px solid rgb(14, 142, 26);
@@ -42,7 +44,8 @@
     border-radius: 0px 0px 15px 15px;
     font-size: 20px;
     font-weight: 400;
-
+    
+   
 }
 
 .cart_show button {
@@ -63,6 +66,7 @@
     height: 50px;
     width: 50px;
 }
+
 
 .menu_icono-header {
     display: flex;
@@ -441,6 +445,22 @@ footer {
 
     border-radius: 2em;
 }
+.active-modal {
+    transform: translateY(0);
+    transition: all 0.5s ease-in;
+  }
+  .desabilitado {
+    background-color: grey;
+    color: white;
+    cursor: not-allowed;
+    border: none;
+  }
+  .desabilitado:hover {
+    background-color: var(--text-gray);
+    color: white;
+    cursor: not-allowed;
+    border: none;
+  }
 
 @media screen and (max-width: 992px) {
 
