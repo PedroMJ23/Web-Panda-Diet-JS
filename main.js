@@ -1,6 +1,6 @@
 const products = document.querySelector('.nuestros_productos-div');
 const productsCart = document.querySelector('.carrito-contenedor');
-const carritoPrecioTotal = document.querySelector('.total');
+const carritoPrecioTotal = document.querySelector('.carrito-total');
 const categorias = document.querySelector('.categorias');
 const listaDeCategorias = document.querySelectorAll('.categorias_filtro');
 
@@ -185,7 +185,7 @@ function iniciarChatear() {
     window.location.href = 'https://wa.me/+54221533900930/?text=Hola.Quiero hacer un pedido...' + '' + productswsp[0]
 }
 
-const renderizarProductosDelCarrito = ({ nombre, precio, imagen }) => {
+const renderizarProductosDelCarrito = ({ nombre, precio, imagen, cantidad }) => {
     return `
     <div class="carrito-contenedor">
                     <p>${nombre}</p>
@@ -209,35 +209,48 @@ const renderizarCarrito = () => {
 }
 
 const obtenerElPrecioTotal = () => {
-    return cart.reduce((acumulador, valorActual) => {
-        acumulador + Number(valorActual.precio) * valorActual.cantidad, 0
-
-    })
+    return cart.reduce(
+        (accum, currentValue) =>
+          accum + Number(currentValue.precio) * currentValue.cantidad,
+        0
+      );
 }
 
 const mostrarElTotal = () => {
-    carritoPrecioTotal.innerHTML = `<span> ${obtenerElPrecioTotal().toFixed(2)} ARS </span>`
+    carritoPrecioTotal.innerHTML = `${obtenerElPrecioTotal().toFixed(2)} ARS`;
+   
 }
 
 const ExisteElProducto = ({ id }) => cart.some(item => item.id === id);
+
+const productoDelCarrito = (product) => {
+    cart = [...cart, { ...product, cantidad: 1 }];
+  };
 
 const añadirAlCarrito = (e) => {
     if (!e.target.classList.contains('icono_añadir')) return;
     console.log('estas añadiendo este producto')
 
-    const { id, nombre, precio, imagen } = e.target.dataset;
+    const { id, nombre, precio, imagen, cantidad } = e.target.dataset;
 
-    const productoParaElCarrito = { id, nombre, precio, imagen };
+    const productoParaElCarrito = { id, nombre, precio, imagen, cantidad };
 
     if (ExisteElProducto(productoParaElCarrito)) {
         //añadimos otra unidad del producto seleccionado
         //mostramos el mensaje de que fue añadido
     } else {
         //agregamos el producto al carrito
+        productoDelCarrito(productoParaElCarrito)
         //mostramos el msj de que el producto fue agregado
     }
 
+    checkProd()
 
+
+}
+
+const checkProd =()=>{
+    saveLocalStorage(cart)
 }
 
 function init() {
