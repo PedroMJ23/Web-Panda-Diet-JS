@@ -21,8 +21,9 @@ const cambiarColorBody = document.querySelector('.body_container');
 const agregarProducto = document.querySelector('.icono_añadir');
 const productosCard = document.querySelector('.productos');
 const comprar = document.querySelector('#comprarId');
-const borrarTodo = document.querySelector('.borrar_todo-btn')
-
+const borrarTodo = document.querySelector('.borrar_todo-btn');
+const agregarBtn = document.querySelector('.items_btn-suma');
+const quitarBtn = document.querySelector('.items_btn-resta');
 
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -190,14 +191,24 @@ function iniciarChatear() {
 const renderizarProductosDelCarrito = ({ nombre, precio, imagen, cantidad }) => {
     return `
     <div class="carrito-contenedor">
-                    <p>${nombre}</p>
-                    <img src="${imagen}" class="img-carrito" alt="ImagenDelProducto" srcset="">
-                    <span>_______________</span>
-                    <div class="carrito-total">
-                        <p>Total:</p>
-                        <span class="total">${precio}</span>
-                    </div>
-                </div>
+    <div class="carrito-item">
+        <div class="item_img-nombre">
+            <img src="${imagen}" class="img-carrito" alt="ImagenDelProducto" srcset="">
+            <p>${nombre}</p>
+        </div>
+
+        <div class="carrito-total">
+            <p>Precio:</p>
+            <span class="total">$${precio}</span>
+        </div>
+        <div class="agregar_quitar" >
+        <button class="items_btn-suma" id="items_btn" >+</button>
+        <span>${cantidad}</span>
+        <button class="items_btn-resta" id="items_btn">-</button>
+        </div>
+    </div>
+  
+</div>
     `
 }
 
@@ -219,7 +230,7 @@ const obtenerElPrecioTotal = () => {
 }
 
 const mostrarElTotal = () => {
-    carritoPrecioTotal.innerHTML = `${obtenerElPrecioTotal().toFixed(2)} ARS`;
+    carritoPrecioTotal.innerHTML = `$${obtenerElPrecioTotal().toFixed(2)} ARS`;
 
 }
 
@@ -268,9 +279,9 @@ const desabilitarBtn = (button) => {
 }
 const renderBurbujaDelCarro = () => {
     cartBubble.textContent = cart.reduce((acc, cur) => acc + cur.cantidad, 0);
-  };
+};
 
-  const vaciarCarrito = ()=>{
+const vaciarCarrito = () => {
     cart = [];
     saveLocalStorage(cart)
     console.log('quitando elementos del carrito')
@@ -278,15 +289,15 @@ const renderBurbujaDelCarro = () => {
     carritoPrecioTotal.textContent = '0.00ARS'
     cartBubble.textContent = '0'
 
-    
-  }
+
+}
 const checkProd = () => {
     saveLocalStorage(cart)
     renderizarCarrito();
     mostrarElTotal();
     desabilitarBtn(comprar);
     renderBurbujaDelCarro();
-    
+
 
 
 }
