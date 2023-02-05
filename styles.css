@@ -36,7 +36,8 @@
     background-color: white;
     min-width: 350px;
     min-height: 350px;
-    max-height: 90vh;
+    max-height: 700px;
+    /* max-height: 90vh; */
 
     gap: 25px;
     border-left: 3px solid rgb(14, 142, 26);
@@ -45,7 +46,8 @@
     border-radius: 0px 0px 15px 15px;
     font-size: 20px;
     font-weight: 400;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+   
     
 
 
