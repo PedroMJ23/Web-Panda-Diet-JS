@@ -82,6 +82,7 @@ const todosLosDatos = [
         imagen: './assets/imagenes/mix-tropical.jpg',
         cantidad: 0,
     }, {
+        id: 20,
         nombre: 'Mix Sin Pasas',
         precio: 1100,
         categoria: 'Frutos Secos',
