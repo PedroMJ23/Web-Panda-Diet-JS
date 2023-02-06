@@ -47,13 +47,15 @@
     font-size: 20px;
     font-weight: 400;
     flex-wrap: nowrap;
-   
-    
+
+
 
 
 }
 
-.cart_show button {
+.comprar,
+.borrar_todo-btn,
+#items_btn {
     height: 40px;
     width: 120px;
     border-radius: 10px;
@@ -112,9 +114,7 @@
 
 }
 
-.carrito-contenedor {
-    
-}
+.carrito-contenedor {}
 
 .carrito-item {
     display: flex;
@@ -127,7 +127,7 @@
 
 }
 
-#items_btn{
+#items_btn {
     height: 35px;
     width: 35px;
     margin: 3px;
@@ -484,6 +484,13 @@ footer {
     color: white;
     cursor: not-allowed;
     border: none;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    text-shadow: 2px 2px 5px black;
+    padding: 5px;
+    font-size: 15px;
+
 }
 
 .desabilitado:hover {
