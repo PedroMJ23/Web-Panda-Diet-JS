@@ -240,6 +240,13 @@ const productoDelCarrito = (product) => {
     cart = [...cart, { ...product, cantidad: 1 }];
 };
 
+const añadirUnidadAlProducto = (product) => {
+    cart = cart.map((cartItem) =>    cartItem.id === product.id ?
+     { ...cartItem, cantidad: cartItem.cantidad + 1 }
+      : cartItem
+    );
+  };
+
 const mostrarMensajeDeCompra = (msg) => {
     successModal.classList.add("active-modal");
     successModal.textContent = msg;
@@ -258,6 +265,7 @@ const añadirAlCarrito = (e) => {
 
     if (ExisteElProducto(productoParaElCarrito)) {
         //añadimos otra unidad del producto seleccionado
+        añadirUnidadAlProducto(productoParaElCarrito)
         //mostramos el mensaje de que fue añadido
     } else {
         //agregamos el producto al carrito
