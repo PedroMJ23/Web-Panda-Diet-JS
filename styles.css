@@ -34,12 +34,13 @@
     top: 83px;
     right: 0;
     background-color: white;
-    min-width: 350px;
+    min-width: 300px;
     min-height: 350px;
     max-height: 700px;
+    max-width: 600px;
     /* max-height: 90vh; */
 
-    gap: 25px;
+    gap: 10px;
     border-left: 3px solid rgb(14, 142, 26);
     border-bottom: 3px solid rgb(14, 142, 26);
     border-right: 3px solid rgb(14, 142, 26);
@@ -47,9 +48,6 @@
     font-size: 20px;
     font-weight: 400;
     flex-wrap: nowrap;
-
-
-
 
 }
 
@@ -108,13 +106,22 @@
     z-index: 5000;
     background-color: black;
     border-radius: 3em;
-    font-size: 18px;
+    font-size: 15px;
     color: #fff;
-    padding: 5px;
+    padding: 10px;
 
 }
 
-.carrito-contenedor {}
+.carrito-contenedor {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin: auto 5px;
+}
+.carrito-contenedor p{
+    padding: 5px;
+}
 
 .carrito-item {
     display: flex;
@@ -557,6 +564,37 @@ footer {
 }
 
 @media screen and (max-width: 575px) {
+    .cart_show{
+        max-width: 400px;
+        font-size: 18px;
+        gap: 3px;
+        flex-wrap: nowrap;
+    }
+    .carrito-contenedor{
+        gap: 5px;
+        flex-wrap: nowrap;
+        padding: 0px;
+        /* background-color: red; */
+        /* max-height: 250px;
+        margin: 5px; */
+        
+    }
+    .carrito-contenedor p{
+        padding: 2px;
+    }
+    /* #items_btn{
+        height: 25px;
+        width: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    } */
+    .agregar_quitar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .portada {
         /* background-color: red; */
         height: 300px;

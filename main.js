@@ -194,8 +194,9 @@ const renderizarProductosDelCarrito = ({ id, nombre, precio, categoria, imagen, 
     <div class="carrito-item">
         <div class="item_img-nombre">
             <img src="${imagen}" class="img-carrito" alt="ImagenDelProducto" srcset="">
-            <p>${nombre}</p>
+            
         </div>
+        <div class="nombreItem"><p>${nombre}</p></div>
 
         <div class="carrito-total">
             <p>Precio:</p>
