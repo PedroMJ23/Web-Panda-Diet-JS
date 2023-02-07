@@ -188,7 +188,7 @@ function iniciarChatear() {
     window.location.href = 'https://wa.me/+54221533900930/?text=Hola.Quiero hacer un pedido...' + '' + productswsp[0]
 }
 
-const renderizarProductosDelCarrito = ({ nombre, precio, imagen, cantidad }) => {
+const renderizarProductosDelCarrito = ({ id, nombre, precio, categoria, imagen, cantidad }) => {
     return `
     <div class="carrito-contenedor">
     <div class="carrito-item">
@@ -202,9 +202,9 @@ const renderizarProductosDelCarrito = ({ nombre, precio, imagen, cantidad }) => 
             <span class="total">$${precio}</span>
         </div>
         <div class="agregar_quitar" >
-        <button class="items_btn-suma" id="items_btn" >+</button>
+        <button class="items_btn-suma" id="items_btn" data-id=${id} >+</button>
         <span>${cantidad}</span>
-        <button class="items_btn-resta" id="items_btn">-</button>
+        <button class="items_btn-resta" id="items_btn" data-id=${id}>-</button>
         </div>
     </div>
   
@@ -219,9 +219,9 @@ const renderizarCarrito = () => {
         comprar.classList.add('desabilitado')
         borrarTodo.classList.remove('borrar_todo-btn')
         borrarTodo.classList.add('desabilitado')*/
-       
-                //console.log('no hay nada en el carrito')
-        return; 
+
+        //console.log('no hay nada en el carrito')
+        return;
     }
     productsCart.innerHTML = cart.map(renderizarProductosDelCarrito).join('');
     /*comprar.classList.remove('desabilitado')
@@ -250,18 +250,18 @@ const productoDelCarrito = (product) => {
 };
 
 const añadirUnidadAlProducto = (product) => {
-    cart = cart.map((cartItem) =>    cartItem.id === product.id ?
-     { ...cartItem, cantidad: cartItem.cantidad + 1 }
-      : cartItem
+    cart = cart.map((cartItem) => cartItem.id === product.id ?
+        { ...cartItem, cantidad: cartItem.cantidad + 1 }
+        : cartItem
     );
-  };
+};
 
-  const quitarUnidadAlProducto = (product) => {
-    cart = cart.map((cartItem) =>    cartItem.id === product.id ?
-     { ...cartItem, cantidad: cartItem.cantidad - 1 }
-      : cartItem
+const quitarUnidadAlProducto = (product) => {
+    cart = cart.map((cartItem) => cartItem.id === product.id ?
+        { ...cartItem, cantidad: cartItem.cantidad - 1 }
+        : cartItem
     );
-  };
+};
 
 const mostrarMensajeDeCompra = (msg) => {
     successModal.classList.add("active-modal");
@@ -290,7 +290,7 @@ const añadirAlCarrito = (e) => {
         //mostramos el msj de que el producto fue agregado
         mostrarMensajeDeCompra('El producto se ha agregado con éxito')
     }
-   
+
 
     checkProd()
 
@@ -314,20 +314,20 @@ const renderBurbujaDelCarro = () => {
     cartBubble.textContent = cart.reduce((acc, cur) => acc + cur.cantidad, 0);
 };
 
-const reestablecerElCarrito = ()=>{
+const reestablecerElCarrito = () => {
     cart = [];
     checkProd();
 }
-const mensajeDelCarrito = (confirmMsg, succesMsg)=>{
-    if(!cart.length) return;
-    if(window.confirm(confirmMsg)){
+const mensajeDelCarrito = (confirmMsg, succesMsg) => {
+    if (!cart.length) return;
+    if (window.confirm(confirmMsg)) {
         console.log('me aceptaron')
         reestablecerElCarrito()
         alert(succesMsg)
     }
 }
 
-const comprarProducto = ()=>{
+const comprarProducto = () => {
     mensajeDelCarrito(
         "¿Desea realizar la compra?",
         "Gracias por su compra"
@@ -340,21 +340,59 @@ const vaciarCarrito = () => {
         "¿Desea vaciar el carrito?",
         "El carrito está vacío"
     )
-   
 
 
-   /* saveLocalStorage(cart)
-    console.log('quitando elementos del carrito')
-    productsCart.innerHTML = `<span>No seleccionaste ningún producto </span>`;
-    carritoPrecioTotal.textContent = '0.00ARS'
-    cartBubble.textContent = '0';
-    renderizarCarrito();
-    alert('Vaciaste el carrito de compra')
-     if(!cart.length){
-         alert('El carrito está vacío')
+
+    /* saveLocalStorage(cart)
+     console.log('quitando elementos del carrito')
+     productsCart.innerHTML = `<span>No seleccionaste ningún producto </span>`;
+     carritoPrecioTotal.textContent = '0.00ARS'
+     cartBubble.textContent = '0';
+     renderizarCarrito();
+     alert('Vaciaste el carrito de compra')
+      if(!cart.length){
+          alert('El carrito está vacío')
+     }
+     */
+
+}
+
+const quitarProductoDelCarro =({id})=>{
+    cart = cart.filter(product => product.id !== id)
+
+}
+
+
+const sumarCantidadBtn = id =>{
+    const productoExistente = cart.find(product => product.id === id )
+    añadirUnidadAlProducto(productoExistente);
+}
+const restarCantidad =(id)=>{
+    const productoExistente = cart.find(product => product.id === id )
+    if(productoExistente.cantidad === 1 ){
+        if(window.confirm('¿Desea eliminar el producto del carrito?')){
+            quitarProductoDelCarro(productoExistente);
+        }
+        return;
+        }
+        quitarUnidadAlProducto(productoExistente);
+        
+    
+}
+
+const cambiarCantidad = (e)=>{
+
+    if(e.target.classList.contains('items_btn-suma')){
+        //console.log('botn de suma')
+        sumarCantidadBtn(e.target.dataset.id)
+        // console.log(e.target.dataset.id)
+    }else if(e.target.classList.contains('items_btn-resta')){
+        restarCantidad(e.target.dataset.id)
+        //console.log('botn de resta')
+        
     }
-    */
-
+    checkProd();
+    
 }
 
 const checkProd = () => {
@@ -385,13 +423,12 @@ function init() {
     document.addEventListener('DOMContentLoaded', mostrarElTotal);
 
     products.addEventListener('click', añadirAlCarrito);
-    // productsCart.addEventListener('click', quitarUnidad)
+    productsCart.addEventListener('click', cambiarCantidad)
     comprar.addEventListener('click', comprarProducto)
     borrarTodo.addEventListener('click', vaciarCarrito)
 
     desabilitarBtn(comprar);
     desabilitarBtn(borrarTodo);
-
     renderBurbujaDelCarro();
 
 
