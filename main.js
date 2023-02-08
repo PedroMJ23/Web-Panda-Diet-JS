@@ -36,7 +36,7 @@ const renderProduct = ({ id, nombre, precio, categoria, imagen, cantidad }) => {
     <div class="card_title">${nombre}</div>
     <div class="card_"><img src="${imagen}" alt="" id="img_card_"></div>
     <div class="descripcion_item">
-        <p class="nombre_item">${categoria}</p> <span class="precio_item">${precio}</span>
+        <p class="nombre_item">${categoria}</p> <span class="precio_item">$${precio}</span>
         
         <button class="icono_añadir" 
         data-id='${id}' 
