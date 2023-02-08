@@ -454,6 +454,17 @@ main {
     margin-top: 15px;
     
 }
+.info-de-contacto input{
+    height: 35px;
+    width: 350px;
+    padding: 5px;
+}
+.info-de-contacto textarea{
+    height: 150px;
+    max-height: 150px;
+    width: 350px;
+    max-width: 350px;
+}
 .form-btn{
     height: 40px;
     width: 120px;
