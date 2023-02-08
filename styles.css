@@ -421,6 +421,51 @@ main {
     cursor: pointer;
 
 }
+.contacto{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 80%;
+    font-size: 20px;
+    gap: 40px;
+    margin: 15px auto;
+    border-top: 1px solid black;
+}
+.contacto-encabezado{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 40%;
+    margin-top: 15px;
+    gap: 10px;
+   
+    
+}
+.info-de-contacto{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+    
+}
+.form-btn{
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    border: 3px solid white;
+    background: linear-gradient(0deg, rgba(17, 136, 15, 1) 0%, rgba(43, 251, 224, 1) 100%);
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
 
 footer {
     display: flex;
@@ -647,6 +692,9 @@ footer {
 
     .sobre_nosotros {
         margin: auto 10px;
+    }
+    .contacto-encabezado p{
+        display: none;
     }
 
 
