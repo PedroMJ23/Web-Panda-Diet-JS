@@ -9,11 +9,29 @@
     scroll-behavior: smooth;
     scroll-padding-top: 75px;
 }
-.registro_container{
+.registro_container, .form_de_registro{
     margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 15px;
+    font-size: 18px;
+}
+input{
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.form_inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.valido{
+    border: green 2px solid;
+}
+.invalido{
+    border: red 2px solid;
 }
