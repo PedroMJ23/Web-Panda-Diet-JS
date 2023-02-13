@@ -16,9 +16,10 @@ const emailValido = EMAIL_REGEX.test(email);
 const contraseñaValida = PASSWORD_REGEX.test(contraseña);
 const telefonoValido = PHONE_REGEX.test(telefono);
 const longitud = (length, min, max) => length > min && length < max;
+const esUnNumero = value => value < '9' && value > '0';
 
 
-const formError = (input, mensaje)=>{
+const formError = (input, mensaje) => {
     const elementroPadre = input.parentElement;
     elementroPadre.classList.remove('valido');
     elementroPadre.classList.add('invalido');
@@ -27,7 +28,7 @@ const formError = (input, mensaje)=>{
 
 }
 
-const formValido = (input)=>{
+const formValido = (input) => {
     const elementroPadre = input.parentElement;
     elementroPadre.classList.remove('invalido');
     elementroPadre.classList.add('valido');
@@ -36,18 +37,21 @@ const formValido = (input)=>{
 
 }
 
-const checkeoDeNombre = ()=>{
+const checkeoDeNombre = () => {
     let validez = false;
     const min = 3;
     const max = 13;
 
     const nombreId = nombre.value.trim();
-    if(inputVacio(nombreId)){
-        formError(nombreId,'Ingrese su nombre')
-    }else if(!longitud(nombreId.length, min, max)){
-        formError(nombreId,`El nombre debe contener de ${min} a ${max} caracteres `)
-    }else{
-        formValido(nombreId);
+
+    if (esUnNumero(nombreId)) {
+        formError(nombre, 'Ingrese nombre sólo con letras')
+    } else if (inputVacio(nombreId)) {
+        formError(nombre, 'Ingrese su nombre')
+    } else if (!longitud(nombreId.length, min, max)) {
+        formError(nombre, `El nombre debe contener de ${min} a ${max} caracteres `)
+    } else {
+        formValido(nombre);
         validez = true;
     }
     return validez;
@@ -66,7 +70,12 @@ const registroExitoso = () => {
     //checkeoDeNombre();
 
 
-     registrarme.addEventListener('click', checkeoDeNombre())
+    registrarme.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        checkeoDeNombre();
+
+    })
 
 
     // window.addEventListener('DOMContentLoaded', mensajeDeRegistro);
