@@ -21,8 +21,8 @@ const esUnNumero = value => value < '9' && value > '0';
 
 const formError = (input, mensaje) => {
     const elementroPadre = input.parentElement;
-    elementroPadre.classList.remove('valido');
-    elementroPadre.classList.add('invalido');
+    input.classList.remove('valido');
+    input.classList.add('invalido');
     const errorSmall = elementroPadre.querySelector('small');
     errorSmall.textContent = mensaje;
 
@@ -30,8 +30,8 @@ const formError = (input, mensaje) => {
 
 const formValido = (input) => {
     const elementroPadre = input.parentElement;
-    elementroPadre.classList.remove('invalido');
-    elementroPadre.classList.add('valido');
+    input.classList.remove('invalido');
+    input.classList.add('valido');
     const errorSmall = elementroPadre.querySelector('small');
     errorSmall.textContent = '';
 
@@ -74,6 +74,7 @@ const registroExitoso = () => {
         e.preventDefault();
 
         checkeoDeNombre();
+        form.reset();
 
     })
 
