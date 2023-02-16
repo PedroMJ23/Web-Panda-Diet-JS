@@ -84,6 +84,9 @@ input{
         display: block;
         margin: auto 10px;
     }
+    .registro_container{
+        margin-top: 25px;
+    }
 
 
     .nav_ul {
@@ -98,13 +101,14 @@ input{
         top: 83px;
         right: 0;
         background-color: white;
-        min-width: 350px;
-        min-height: 350px;
-        gap: 25px;
+        min-width: 250px;
+        min-height: 300px;
+        gap: 15px;
         border-left: 3px solid rgb(14, 142, 26);
         border-bottom: 3px solid rgb(14, 142, 26);
         border-right: 3px solid rgb(14, 142, 26);
         border-radius: 0px 0px 15px 15px;
+        
 
     }
     
