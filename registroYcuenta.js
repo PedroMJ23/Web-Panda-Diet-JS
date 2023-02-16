@@ -7,6 +7,7 @@ const contraseña = document.querySelector('#contraseña');
 const registrarme = document.querySelector('#registrarme');
 const barsMenu = document.querySelector(".nav_ul");
 const menuIcono = document.querySelector('#iconoDelMenu');
+const overlay = document.querySelector(".overlay");
 
 const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
 const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
@@ -107,11 +108,28 @@ const toggleMenu = () => {
     //     cartMenu.classList.add('cart')
     //     return
     // }
-    // overlay.classList.toggle('show-overlay')
-
-
+    overlay.classList.toggle('show-overlay')
 
     console.log('tocando el boton de menu')
+}
+
+
+const ocultarAlClickear = () => {
+
+    barsMenu.classList.remove("nav_ul_show");
+    overlay.classList.remove('show-overlay');
+
+
+}
+
+const ocultarOverlay = () => {
+    if (
+        !barsMenu.classList.contains('nav_ul_show') // si no se muestra el menu
+         
+    ) return;                                          //no hagas nada
+    barsMenu.classList.remove("nav_ul_show");
+    overlay.classList.remove("show-overlay");
+
 }
 
 
@@ -120,7 +138,7 @@ const toggleMenu = () => {
 const registroExitoso = () => {
     //checkeoDeNombre();
 
-   
+
     registrarme.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -128,7 +146,7 @@ const registroExitoso = () => {
             form.reset();
         }
 
-       
+
 
 
         // checkeoDeNombre();
@@ -137,7 +155,9 @@ const registroExitoso = () => {
         // form.reset();
 
     })
-    //menuIcono.addEventListener('click', mostrarMenu())
+    menuIcono.addEventListener('click', toggleMenu)
+    overlay.addEventListener('click', ocultarAlClickear);
+    window.addEventListener('scroll', ocultarOverlay);
 
 
     // window.addEventListener('DOMContentLoaded', mensajeDeRegistro);
