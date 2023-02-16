@@ -35,3 +35,65 @@ input{
 .invalido{
     border: red 2px solid;
 }
+
+.nav_ul_show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 83px;
+    right: 0;
+    background-color: white;
+    min-width: 350px;
+    min-height: 350px;
+    gap: 25px;
+    border-left: 3px solid rgb(14, 142, 26);
+    border-bottom: 3px solid rgb(14, 142, 26);
+    border-right: 3px solid rgb(14, 142, 26);
+    border-radius: 0px 0px 15px 15px;
+
+}
+
+
+@media screen and (max-width: 992px) {
+    header{
+        padding: 0px 1%;
+    }
+    .icono_menu {
+        display: block;
+        margin: auto 10px;
+    }
+
+
+    .nav_ul {
+        display: none;
+    }
+    .nav_ul_show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: 83px;
+        right: 0;
+        background-color: white;
+        min-width: 350px;
+        min-height: 350px;
+        gap: 25px;
+        border-left: 3px solid rgb(14, 142, 26);
+        border-bottom: 3px solid rgb(14, 142, 26);
+        border-right: 3px solid rgb(14, 142, 26);
+        border-radius: 0px 0px 15px 15px;
+
+    }
+    
+
+    
+
+}
+@media screen and (max-width: 575px) {
+
+
+
+}

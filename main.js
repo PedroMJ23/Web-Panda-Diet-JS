@@ -106,7 +106,7 @@ const changeShowMoreBtnState = (selectedCategory) => {
     btnLoad.classList.add('hidden');
 }
 
-changeFilterState = (selectedCategory) => {
+const changeFilterState = (selectedCategory) => {
     changeActiveState(selectedCategory);
     changeShowMoreBtnState(selectedCategory);
 }
