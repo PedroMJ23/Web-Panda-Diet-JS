@@ -35,6 +35,9 @@ input{
 .invalido{
     border: red 2px solid;
 }
+.error_text{
+    color: red;
+}
 
 .nav_ul_show {
     display: flex;

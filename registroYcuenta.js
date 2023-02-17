@@ -16,9 +16,9 @@ const PHONE_REGEX = /^[0-9]{10}$/;
 
 
 const inputVacio = value => value === '';
-const emailValido = EMAIL_REGEX.test(email);
-const contraseñaValida = PASSWORD_REGEX.test(contraseña);
-const telefonoValido = PHONE_REGEX.test(telefono);
+const emailValido = (email) => EMAIL_REGEX.test(email);
+const contraseñaValida = (contraseña) => PASSWORD_REGEX.test(contraseña);
+const telefonoValido = (telefono) => PHONE_REGEX.test(telefono);
 const longitud = (length, min, max) => length > min && length < max;
 const esUnNumero = value => value < '9' && value > '0';
 
@@ -29,6 +29,7 @@ const formError = (input, mensaje) => {
     input.classList.add('invalido');
     const errorSmall = elementroPadre.querySelector('small');
     errorSmall.textContent = mensaje;
+    errorSmall.classList.add('error_text');
 
 }
 
@@ -69,11 +70,11 @@ const checkeoDeApellido = () => {
     const apellidoId = apellido.value.trim();
 
     if (esUnNumero(apellidoId)) {
-        formError(apellido, 'Ingrese nombre sólo con letras')
+        formError(apellido, 'Ingrese su apellido sólo con letras')
     } else if (inputVacio(apellidoId)) {
-        formError(apellido, 'Ingrese su nombre')
+        formError(apellido, 'Ingrese su spellido')
     } else if (!longitud(apellidoId.length, min, max)) {
-        formError(apellido, `El nombre debe contener de ${min} a ${max} caracteres `)
+        formError(apellido, `El apellido debe contener de ${min} a ${max} caracteres `)
     } else {
         formValido(apellido);
         validez = true;
@@ -87,8 +88,9 @@ const checkeoDeTelefono = () => {
     const max = 12;
 
     const telefonoId = telefono.value.trim();
-
-    if (!esUnNumero(telefonoId)) {
+    if (inputVacio(telefonoId)) {
+        formError(telefono, 'Debe ingresar su telefono')
+    } else if (!esUnNumero(telefonoId)) {
         formError(telefono, 'Debe ingresar sólo números')
     } else if (!longitud(telefonoId.length, min, max)) {
         formError(telefono, `La cantidad de caractéres deben ser entre 7 y 11`)
@@ -100,32 +102,60 @@ const checkeoDeTelefono = () => {
 
 }
 
+const checkeoDeEmail = () => {
+    let validez = false;
+    const min = 12;
+    const max = 31;
+
+    const emailId = email.value.trim();
+
+    if (inputVacio(emailId)) {
+        formError(email, 'Debe ingresar su email')
+    } else if (!emailValido(emailId)) {
+        formError(email, 'Debe ingresar un email valido')
+    } else if (!longitud(emailId.length, min, max)) {
+        formError(email, `La cantidad de caractéres deben ser entre 13 y 30`)
+    } else {
+        formValido(email)
+        validez = true;
+    }
+    return validez;
+
+}
+
+const checkeoDeContraseña = () => {
+    let validez = false;
+    const contraseñaId = contraseña.value.trim();
+
+    if (inputVacio(contraseñaId)) {
+        formError(contraseña, 'Debe ingresar su contraseña')
+    } else if (!contraseñaValida(contraseñaId)) {
+        formError(contraseña, 'La contraseña debe teenr al menos 8 caracteres, una mayuscula, una minuscula y un simbolo.')
+    } else {
+        formValido(contraseña)
+        validez = true;
+    }
+    return validez;
+
+}
+
 
 const toggleMenu = () => {
     barsMenu.classList.toggle('nav_ul_show');
-    // if (cartMenu.classList.contains('cart_show')) {
-    //     cartMenu.classList.remove('cart_show')
-    //     cartMenu.classList.add('cart')
-    //     return
-    // }
     overlay.classList.toggle('show-overlay')
-
     console.log('tocando el boton de menu')
 }
 
 
 const ocultarAlClickear = () => {
-
     barsMenu.classList.remove("nav_ul_show");
     overlay.classList.remove('show-overlay');
-
-
 }
 
 const ocultarOverlay = () => {
     if (
         !barsMenu.classList.contains('nav_ul_show') // si no se muestra el menu
-         
+
     ) return;                                          //no hagas nada
     barsMenu.classList.remove("nav_ul_show");
     overlay.classList.remove("show-overlay");
@@ -142,7 +172,8 @@ const registroExitoso = () => {
     registrarme.addEventListener('click', (e) => {
         e.preventDefault();
 
-        if (checkeoDeNombre() && checkeoDeApellido() && checkeoDeTelefono()) {
+        if (checkeoDeNombre() && checkeoDeApellido() && checkeoDeTelefono() &&
+            checkeoDeEmail() && checkeoDeContraseña()) {
             form.reset();
         }
 
