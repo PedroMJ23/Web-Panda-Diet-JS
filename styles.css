@@ -660,6 +660,9 @@ footer {
     .carrito-contenedor p{
         padding: 2px;
     }
+    .desabilitado{
+        margin-bottom: 5px;
+    }
     /* #items_btn{
         height: 25px;
         width: 25px;
