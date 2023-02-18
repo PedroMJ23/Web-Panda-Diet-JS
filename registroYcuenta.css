@@ -22,6 +22,7 @@ input{
     font-size: 18px;
     border-radius: 5px;
     padding: 5px;
+    margin: 3px;
 }
 .form_inputs{
     display: flex;
@@ -29,6 +30,7 @@ input{
     justify-content: center;
     flex-direction: column;
 }
+
 .valido{
     border: green 2px solid;
 }
@@ -37,6 +39,8 @@ input{
 }
 .error_text{
     color: red;
+    max-width: 350px;
+    
 }
 
 .nav_ul_show {
