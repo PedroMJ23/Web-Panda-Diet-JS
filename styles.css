@@ -520,37 +520,39 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 70%;
+    min-width: 90%;
     padding: 5px;
     /* background-color: red; */
     flex-wrap: wrap;
-
 
 }
 
 .redes {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 10px auto;
     padding: 5px;
+    
+    
 }
 
 .redes1 {
-    margin: 0px 35px;
-    height: 150px;
-    width: 150px;
+    margin: 0px 50px;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 80px;
+    max-height: 80px;
 
-    /* background-color: red; */
 }
 
 .redes1 a img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
 }
 
 .redes1 a img:hover {
@@ -661,6 +663,9 @@ footer {
 
     .sobre_nosotros {
         margin: 75px 15px 10px 15px;
+    }
+    .redes1 {
+        margin: 0px 30px;
     }
 
 
@@ -777,6 +782,10 @@ footer {
         width: 3250px;
         max-width: 250px;
     }
+    .redes1 {
+        margin: 0px 20px;
+    }
+
 
 
 
