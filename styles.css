@@ -19,7 +19,8 @@
     width: 80px;
     cursor: pointer;
 }
-.nav_ul{
+
+.nav_ul {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,10 +34,10 @@
 .cart_show {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     position: absolute;
-    overflow: scroll;
+    overflow-y: scroll;
     top: 83px;
     right: 0;
     background-color: white;
@@ -84,7 +85,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .cart-label {
@@ -93,14 +94,14 @@
     cursor: pointer;
     position: relative;
     z-index: 1000;
-  
+
 }
 
 .icono_carrito {
     height: 40px;
     width: 40px;
     cursor: pointer;
-    
+
 }
 
 .cart-bubble {
@@ -128,7 +129,8 @@
     gap: 10px;
     margin: auto 5px;
 }
-.carrito-contenedor p{
+
+.carrito-contenedor p {
     padding: 5px;
 }
 
@@ -212,7 +214,7 @@ header {
     align-items: center;
     justify-content: space-between;
     z-index: 2000;
-    
+
 }
 
 header .navbar ul {
@@ -251,7 +253,7 @@ header .navbar ul li a:hover {
     background: rgb(14, 142, 26);
     /*background: #333;*/
     color: #fff;
-   
+
 }
 
 main {
@@ -440,7 +442,8 @@ main {
     cursor: pointer;
 
 }
-.contacto{
+
+.contacto {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -452,7 +455,8 @@ main {
     margin: 15px auto;
     border-top: 1px solid black;
 }
-.contacto-encabezado{
+
+.contacto-encabezado {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -461,30 +465,34 @@ main {
     width: 40%;
     margin-top: 15px;
     gap: 10px;
-   
-    
+
+
 }
-.info-de-contacto{
+
+.info-de-contacto {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     gap: 5px;
     margin-top: 15px;
-    
+
 }
-.info-de-contacto input{
+
+.info-de-contacto input {
     height: 35px;
     width: 350px;
     padding: 5px;
 }
-.info-de-contacto textarea{
+
+.info-de-contacto textarea {
     height: 150px;
     max-height: 150px;
     width: 350px;
     max-width: 350px;
 }
-.form-btn{
+
+.form-btn {
     height: 40px;
     width: 120px;
     border-radius: 10px;
@@ -587,9 +595,10 @@ footer {
     /* body {
       background-color: blue;
     } */
-    header{
+    header {
         padding: 0px 1%;
     }
+
     .icono_menu {
         display: block;
         margin: auto 10px;
@@ -642,27 +651,31 @@ footer {
 }
 
 @media screen and (max-width: 575px) {
-    .cart_show{
+    .cart_show {
         max-width: 400px;
         font-size: 18px;
         gap: 3px;
         flex-wrap: nowrap;
     }
-    .carrito-contenedor{
+
+    .carrito-contenedor {
         gap: 5px;
         flex-wrap: nowrap;
         padding: 0px;
         /* background-color: red; */
         /* max-height: 250px;
         margin: 5px; */
-        
+
     }
-    .carrito-contenedor p{
+
+    .carrito-contenedor p {
         padding: 2px;
     }
-    .desabilitado{
+
+    .desabilitado {
         margin-bottom: 5px;
     }
+
     /* #items_btn{
         height: 25px;
         width: 25px;
@@ -671,11 +684,12 @@ footer {
         justify-content: center;
         flex-direction: row;
     } */
-    .agregar_quitar{
+    .agregar_quitar {
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
     .portada {
         /* background-color: red; */
         height: 300px;
@@ -729,15 +743,18 @@ footer {
     .sobre_nosotros {
         margin: auto 10px;
     }
-    .contacto-encabezado p{
+
+    .contacto-encabezado p {
         display: none;
     }
-    .info-de-contacto input{
+
+    .info-de-contacto input {
         height: 35px;
         width: 250px;
         padding: 5px;
     }
-    .info-de-contacto textarea{
+
+    .info-de-contacto textarea {
         height: 150px;
         max-height: 150px;
         width: 3250px;
