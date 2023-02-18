@@ -41,12 +41,12 @@
     top: 83px;
     right: 0;
     background-color: white;
-    
+
     min-width: 300px;
     min-height: 350px;
     max-height: calc(100vh - 80px);
     max-width: 600px;
-   
+
     gap: 10px;
     border-left: 3px solid rgb(14, 142, 26);
     border-bottom: 3px solid rgb(14, 142, 26);
@@ -533,8 +533,8 @@ footer {
     justify-content: space-between;
     margin: 10px auto;
     padding: 5px;
-    
-    
+
+
 }
 
 .redes1 {
@@ -561,12 +561,21 @@ footer {
 
 .ubicacion {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    flex-direction: column;
     min-width: 200px;
     margin: 10px auto;
+    font-size: 20px;
+    font-weight: 600;
 
 }
+.ub{
+    height: 150px;
+    width: 500px;
+    border-radius: 15px;
+}
+
 
 .card_ {
     height: 250px;
@@ -664,8 +673,17 @@ footer {
     .sobre_nosotros {
         margin: 75px 15px 10px 15px;
     }
+
     .redes1 {
         margin: 0px 30px;
+    }
+    .ubicacion{
+        font-size: 20px;
+        
+    }
+    .ub{
+    height: 150px;
+    width: 350px;
     }
 
 
@@ -782,8 +800,17 @@ footer {
         width: 3250px;
         max-width: 250px;
     }
+
     .redes1 {
         margin: 0px 20px;
+    }
+    .ubicacion{
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .ub{
+    height: 100px;
+    width: 250px;
     }
 
 
