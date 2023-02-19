@@ -570,7 +570,8 @@ footer {
     font-weight: 600;
 
 }
-.ub{
+
+.ub {
     height: 150px;
     width: 500px;
     border-radius: 15px;
@@ -589,6 +590,21 @@ footer {
     height: 100%;
 
     border-radius: 2em;
+}
+
+.add-modal {
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: green;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    transform: translateY(200%);
+    font-size: 18px;
 }
 
 .active-modal {
@@ -619,9 +635,6 @@ footer {
 
 @media screen and (max-width: 992px) {
 
-    /* body {
-      background-color: blue;
-    } */
     header {
         padding: 0px 1%;
     }
@@ -677,13 +690,15 @@ footer {
     .redes1 {
         margin: 0px 30px;
     }
-    .ubicacion{
+
+    .ubicacion {
         font-size: 20px;
-        
+
     }
-    .ub{
-    height: 150px;
-    width: 350px;
+
+    .ub {
+        height: 150px;
+        width: 350px;
     }
 
 
@@ -804,13 +819,15 @@ footer {
     .redes1 {
         margin: 0px 20px;
     }
-    .ubicacion{
+
+    .ubicacion {
         font-size: 20px;
         font-weight: 400;
     }
-    .ub{
-    height: 100px;
-    width: 250px;
+
+    .ub {
+        height: 100px;
+        width: 250px;
     }
 
 

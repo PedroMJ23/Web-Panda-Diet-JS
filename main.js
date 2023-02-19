@@ -268,9 +268,10 @@ const mostrarMensajeDeCompra = (msg) => {
     successModal.classList.add("active-modal");
     successModal.textContent = msg;
     setTimeout(() => {
-        successModal.classList.remove("acive-modal")
+        successModal.classList.remove("active-modal");
     }, 1500);
-}
+
+};
 
 const añadirAlCarrito = (e) => {
     if (!e.target.classList.contains('icono_añadir')) return;
@@ -358,42 +359,42 @@ const vaciarCarrito = () => {
 
 }
 
-const quitarProductoDelCarro =({id})=>{
+const quitarProductoDelCarro = ({ id }) => {
     cart = cart.filter(product => product.id !== id)
 
 }
 
 
-const sumarCantidadBtn = id =>{
-    const productoExistente = cart.find(product => product.id === id )
+const sumarCantidadBtn = id => {
+    const productoExistente = cart.find(product => product.id === id)
     añadirUnidadAlProducto(productoExistente);
 }
-const restarCantidad =(id)=>{
-    const productoExistente = cart.find(product => product.id === id )
-    if(productoExistente.cantidad === 1 ){
-        if(window.confirm('¿Desea eliminar el producto del carrito?')){
+const restarCantidad = (id) => {
+    const productoExistente = cart.find(product => product.id === id)
+    if (productoExistente.cantidad === 1) {
+        if (window.confirm('¿Desea eliminar el producto del carrito?')) {
             quitarProductoDelCarro(productoExistente);
         }
         return;
-        }
-        quitarUnidadAlProducto(productoExistente);
-        
-    
+    }
+    quitarUnidadAlProducto(productoExistente);
+
+
 }
 
-const cambiarCantidad = (e)=>{
+const cambiarCantidad = (e) => {
 
-    if(e.target.classList.contains('items_btn-suma')){
+    if (e.target.classList.contains('items_btn-suma')) {
         //console.log('botn de suma')
         sumarCantidadBtn(e.target.dataset.id)
         // console.log(e.target.dataset.id)
-    }else if(e.target.classList.contains('items_btn-resta')){
+    } else if (e.target.classList.contains('items_btn-resta')) {
         restarCantidad(e.target.dataset.id)
         //console.log('botn de resta')
-        
+
     }
     checkProd();
-    
+
 }
 
 const checkProd = () => {
