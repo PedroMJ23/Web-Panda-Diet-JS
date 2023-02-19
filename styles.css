@@ -7,7 +7,7 @@
     font-family: Arial, Helvetica, sans-serif;
     /* text-transform: capitalize; */
     scroll-behavior: smooth;
-    scroll-padding-top: 75px;
+    scroll-padding-top: 80px;
 }
 
 .body_container {
@@ -76,9 +76,9 @@
 }
 
 .img-carrito {
-    height: 35px;
-    width: 35px;
-    border-radius: 10px;
+    height: 65px;
+    width: 65px;
+    border-radius: 5px;
 }
 
 
@@ -105,7 +105,7 @@
 
 }
 
-.cart-bubble {
+.burbuja {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,10 +139,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid black;
+    border: 1px solid black;
     margin: 10px;
     padding: 10px;
-    border-radius: 1em;
+    border-radius: 5px;
 
 }
 
@@ -233,7 +233,7 @@ header .navbar ul li a {
     margin: 0 20px;
     color: #333;
     display: block;
-    border-radius: 15px;
+    border-radius: 10px;
 
 }
 
@@ -275,6 +275,10 @@ main {
     align-items: center;
     z-index: 500;
     position: relative;
+    background: url(./assets/portada/comida-saludable.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .logo_portada {
@@ -324,7 +328,7 @@ main {
     font-size: 20px;
     font-weight: 600;
     border: 2px solid rgb(14, 142, 26);
-    border-radius: 1em;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -350,6 +354,7 @@ main {
     margin: 15px;
     gap: 40px;
     flex-wrap: wrap;
+    max-width: 85%;
     /*max-width: 1200px;*/
 
 }
@@ -369,11 +374,11 @@ main {
 }
 
 .productos {
-    height: 400px;
-    width: 350px;
-    /*background-color: red;*/
-    border: 3px solid rgb(14, 142, 26);
-    border-radius: 3em;
+    height: 350px;
+    width: 325px;
+    /* background-color: red; */
+    /* border: 3px solid rgb(14, 142, 26); */
+    /* border-radius: 3em; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -384,16 +389,44 @@ main {
     gap: 10px;
 }
 
+.productos:hover {
+    border: 1px solid rgb(14, 142, 26);
+    border-radius: 3px;
 
+}
+
+.card_ {
+    height: 340px;
+    width: 285px;
+    overflow: hidden;
+    /* background-color: red; */
+}
+
+
+#img_card_ {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    
+}
 
 .descripcion_item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    /* gap: 25px; */
+}
+.item_nombre-precio{
+    display: flex;
     justify-content: center;
-    gap: 5px;
+    align-items: flex-start;
+    flex-direction: column;
+
 }
 
 .productos_img {
+
     min-height: 200px;
     min-width: 150px;
     max-height: 250px;
@@ -432,7 +465,7 @@ main {
 
 }
 
-.btn-load {
+.ver_mas {
     height: 45px;
     padding: 7px;
     margin: 5px auto;
@@ -578,19 +611,6 @@ footer {
 }
 
 
-.card_ {
-    height: 250px;
-    width: 250px;
-    overflow: hidden;
-    /*background-color: red;*/
-}
-
-#img_card_ {
-    width: 100%;
-    height: 100%;
-
-    border-radius: 2em;
-}
 
 .add-modal {
     padding: 15px 0px;
@@ -660,7 +680,7 @@ footer {
         background-color: white;
         min-width: 350px;
         min-height: 350px;
-        gap: 25px;
+        gap: 20px;
         border-left: 3px solid rgb(14, 142, 26);
         border-bottom: 3px solid rgb(14, 142, 26);
         border-right: 3px solid rgb(14, 142, 26);
@@ -669,8 +689,8 @@ footer {
     }
 
     .portada {
-        height: 500px;
-
+        height: 550px;
+        margin-bottom: auto;
     }
 
     .logo_portada {
@@ -685,6 +705,9 @@ footer {
 
     .sobre_nosotros {
         margin: 75px 15px 10px 15px;
+    }
+    .nuestros_productos-div{
+        max-width: 100%;
     }
 
     .redes1 {
@@ -770,13 +793,13 @@ footer {
         height: 300px;
         width: 250px;
 
-        border: 2px solid rgb(14, 142, 26);
+        /* border: 2px solid rgb(14, 142, 26);
         border-radius: 2em;
 
         font-size: 18px;
         font-weight: 600;
         padding: 15px;
-        gap: 10px;
+        gap: 10px; */
 
 
     }
@@ -792,7 +815,6 @@ footer {
         width: 100%;
         height: 100%;
 
-        border-radius: 2em;
     }
 
     .sobre_nosotros {

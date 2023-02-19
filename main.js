@@ -4,20 +4,18 @@ const carritoPrecioTotal = document.querySelector('.carrito-total');
 const categorias = document.querySelector('.categorias');
 const listaDeCategorias = document.querySelectorAll('.categorias_filtro');
 
-
-const btnLoad = document.querySelector(".btn-load");
+const verMas = document.querySelector(".ver_mas");
 const buyBtn = document.querySelector(".btn-buy");
-const cartBubble = document.querySelector(".cart-bubble");
+const burbujaDelCarro = document.querySelector(".burbuja");
 const cartBtn = document.querySelector(".icono_carrito");
 const cartMenu = document.querySelector(".cart");
-const barsBtn = document.querySelector(".icono_menu"); /*.menu-label*/
+const barsBtn = document.querySelector(".icono_menu");
 const barsMenu = document.querySelector(".nav_ul");
 const overlay = document.querySelector(".overlay");
 const successModal = document.querySelector(".add-modal");
 const deleteBtn = document.querySelector(".btn-delete");
 
 const iconoPandaNav = document.querySelector('.img_navbar')
-const cambiarColorBody = document.querySelector('.body_container');
 const agregarProducto = document.querySelector('.icono_añadir');
 const productosCard = document.querySelector('.productos');
 const comprar = document.querySelector('.comprar');
@@ -33,10 +31,14 @@ const saveLocalStorage = cartList => localStorage.setItem('cart', JSON.stringify
 const renderProduct = ({ id, nombre, precio, categoria, imagen, cantidad }) => {
     return `
     <div class="productos">
-    <div class="card_title">${nombre}</div>
+
     <div class="card_"><img src="${imagen}" alt="" id="img_card_"></div>
     <div class="descripcion_item">
-        <p class="nombre_item">${categoria}</p> <span class="precio_item">$${precio}</span>
+    <div class="item_nombre-precio">
+    <p class="nombre_item">${nombre}</p> 
+    <span class="precio_item">$${precio}</span>
+    </div>
+      
         
         <button class="icono_añadir" 
         data-id='${id}' 
@@ -83,7 +85,7 @@ const showMoreProducts = () => {
     renderDividedProducts(productsController.nextProductsIndex);
     productsController.nextProductsIndex++;
     if (isLastIndex()) {
-        btnLoad.classList.add('hidden')
+        verMas.classList.add('hidden')
     }
 }
 
@@ -100,10 +102,10 @@ changeActiveState = (selectedCategory) => {
 }
 const changeShowMoreBtnState = (selectedCategory) => {
     if (!selectedCategory) {
-        btnLoad.classList.remove('hidden');
+        verMas.classList.remove('hidden');
         return;
     }
-    btnLoad.classList.add('hidden');
+    verMas.classList.add('hidden');
 }
 
 const changeFilterState = (selectedCategory) => {
@@ -155,11 +157,6 @@ const toggleCart = () => {
 
 }
 
-const toggleBody = () => {
-    cambiarColorBody.classList.toggle('body_container');
-
-
-}
 const ocultarAlAClickear = (e) => {
     if (!e.target.classList.contains('nav_a')) return;
     barsMenu.classList.remove("nav_ul_show");
@@ -269,7 +266,7 @@ const mostrarMensajeDeCompra = (msg) => {
     successModal.textContent = msg;
     setTimeout(() => {
         successModal.classList.remove("active-modal");
-    }, 1500);
+    }, 1800);
 
 };
 
@@ -305,7 +302,7 @@ const desabilitarBtn = (button) => {
         button.classList.remove('comprar')
         button.classList.remove('borrar_todo-btn')
         button.classList.add('desabilitado')
-        console.log('btn desabilitado')
+        // console.log('btn desabilitado')
     } else {
         button.classList.remove('desabilitado');
         button.classList.add('comprar')
@@ -313,7 +310,7 @@ const desabilitarBtn = (button) => {
     }
 }
 const renderBurbujaDelCarro = () => {
-    cartBubble.textContent = cart.reduce((acc, cur) => acc + cur.cantidad, 0);
+    burbujaDelCarro.textContent = cart.reduce((acc, cur) => acc + cur.cantidad, 0);
 };
 
 const reestablecerElCarrito = () => {
@@ -342,20 +339,6 @@ const vaciarCarrito = () => {
         "¿Desea vaciar el carrito?",
         "El carrito está vacío"
     )
-
-
-
-    /* saveLocalStorage(cart)
-     console.log('quitando elementos del carrito')
-     productsCart.innerHTML = `<span>No seleccionaste ningún producto </span>`;
-     carritoPrecioTotal.textContent = '0.00ARS'
-     cartBubble.textContent = '0';
-     renderizarCarrito();
-     alert('Vaciaste el carrito de compra')
-      if(!cart.length){
-          alert('El carrito está vacío')
-     }
-     */
 
 }
 
@@ -411,7 +394,7 @@ const checkProd = () => {
 
 function init() {
     renderProducts()
-    btnLoad.addEventListener('click', showMoreProducts);
+    verMas.addEventListener('click', showMoreProducts);
     categorias.addEventListener('click', aplicarFiltro);
     barsBtn.addEventListener('click', toggleMenu);
     cartBtn.addEventListener('click', toggleCart);
