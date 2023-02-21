@@ -344,7 +344,6 @@ main {
         -webkit-transform: translateX(calc(-13% * 6));
         transform: translateX(calc(-13% * 6));
     }
-
 }
 
 .oferta_img {
@@ -355,6 +354,16 @@ main {
 
 .slider_text p {
     font-size: 25px;
+}
+.categorias_motrar{
+    background: rgb(14, 142, 26);
+    color: #fff;
+    width: 90vw;
+    margin: 25px auto 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }
 
 .categorias {
@@ -554,8 +563,6 @@ main {
     width: 40%;
     margin-top: 15px;
     gap: 10px;
-
-
 }
 
 .info-de-contacto {

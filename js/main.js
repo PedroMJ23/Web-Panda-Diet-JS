@@ -119,13 +119,11 @@ const aplicarFiltro = (e) => {
         products.innerHTML = '';
         renderProducts();
 
-        console.log('no hay categoria')
     } else {
         renderProducts(0, clickedCategory)
 
         productsController.nextProductsIndex = 1;
     }
-
 
 }
 
@@ -245,8 +243,7 @@ const mostrarMensajeDeCompra = (msg) => {
 
 const añadirAlCarrito = (e) => {
     if (!e.target.classList.contains('icono_añadir')) return;
-    console.log('estas añadiendo este producto')
-
+   
     const { id, nombre, precio, imagen, cantidad } = e.target.dataset;
 
     const productoParaElCarrito = { id, nombre, precio, imagen, cantidad };
@@ -288,7 +285,6 @@ const reestablecerElCarrito = () => {
 const mensajeDelCarrito = (confirmMsg, succesMsg) => {
     if (!cart.length) return;
     if (window.confirm(confirmMsg)) {
-        console.log('me aceptaron')
         reestablecerElCarrito()
         alert(succesMsg)
     }
