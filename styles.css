@@ -10,10 +10,6 @@
     scroll-padding-top: 80px;
 }
 
-.body_container {
-    /* background: grey;*/
-}
-
 .img_navbar {
     height: 80px;
     width: 80px;
@@ -565,15 +561,21 @@ main {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    gap: 5px;
-    margin-top: 15px;
-
+   
 }
 
 .info-de-contacto input {
     height: 35px;
     width: 350px;
-    padding: 5px;
+ 
+}
+.consulta_inputs{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
 }
 
 .info-de-contacto textarea {

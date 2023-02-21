@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PandaDiet</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="registroYcuenta.css">
 </head>
 
 <body class="body_container">
@@ -84,17 +85,23 @@
             </div>
             <div class="sobre_nosotros-slider">
                 <div class="slider">
-                    <div class="slider_text" id="img_slider-1"> <img src="./assets/imagenes/frutos-secos.jpg" alt="" class="oferta_img">
+                    <div class="slider_text" id="img_slider-1"> <img src="./assets/imagenes/frutos-secos.jpg" alt=""
+                            class="oferta_img">
                     </div>
-                    <div class="slider_text" id="img_slider-2"> <img src="./assets/imagenes/avellanas.jpg" alt="" class="oferta_img">
+                    <div class="slider_text" id="img_slider-2"> <img src="./assets/imagenes/avellanas.jpg" alt=""
+                            class="oferta_img">
                     </div>
-                    <div class="slider_text" id="img_slider-3"> <img src="./assets/imagenes/mix-frutas-sin-pasas-ni-mani.jpg" alt="" class="oferta_img">
+                    <div class="slider_text" id="img_slider-3"> <img
+                            src="./assets/imagenes/mix-frutas-sin-pasas-ni-mani.jpg" alt="" class="oferta_img">
                     </div>
-                    <div class="slider_text" id="img_slider-4"> <img src="./assets/imagenes/avellanachoconegro0673.jpg" alt="" class="oferta_img">
+                    <div class="slider_text" id="img_slider-4"> <img src="./assets/imagenes/avellanachoconegro0673.jpg"
+                            alt="" class="oferta_img">
                     </div>
-                    <div class="slider_text" id="img_slider-5"> <img src="./assets/imagenes/azucar-mascabada.jpg" alt="" class="oferta_img">
+                    <div class="slider_text" id="img_slider-5"> <img src="./assets/imagenes/azucar-mascabada.jpg" alt=""
+                            class="oferta_img">
                     </div>
-                    <div class="slider_text" id="img_slider-6"> <img src="./assets/imagenes/harina-integral.jpg" alt="" class="oferta_img">
+                    <div class="slider_text" id="img_slider-6"> <img src="./assets/imagenes/harina-integral.jpg" alt=""
+                            class="oferta_img">
                     </div>
 
                 </div>
@@ -126,16 +133,28 @@
                     ducimus, totam voluptates? Quia, perferendis veritatis!</p>
             </div>
             <form action="" class="info-de-contacto">
-                <p>Tu nombre:</p>
-                <input type="text" placeholder="Ingrese su nombre completo" id="input_nombre">
-                <p>Teléfono:</p>
-                <input type="text" placeholder="Ingrese su teléfono" id="input_telefono">
-                <p>Tu e-mail:</p>
-                <input type="text" placeholder="Ingrese su e-mail" id="input_email">
-                <p>Tu consulta:</p>
-                <textarea name="consulta" id="input_consulta" cols="40" rows="10"
-                    placeholder="ingrese su consulta"></textarea>
-                <button type="submit" class="form-btn">Enviar</button>
+                <div class="consulta_inputs">
+                    <p>Tu nombre:</p>
+                    <input type="text" placeholder="Ingrese su nombre completo" id="input_nombre">
+                    <small></small>
+                </div>
+                <div class="consulta_inputs">
+                    <p>Teléfono:</p>
+                    <input type="text" placeholder="Ingrese su teléfono" id="input_telefono">
+                    <small></small>
+                </div>
+                <div class="consulta_inputs">
+                    <p>Tu e-mail:</p>
+                    <input type="text" placeholder="Ingrese su e-mail" id="input_email">
+                    <small></small>
+                </div>
+                <div class="consulta_inputs">
+                    <p>Tu consulta:</p>
+                    <textarea name="consulta" id="input_consulta" cols="40" rows="10"
+                        placeholder="ingrese su consulta" ></textarea>
+                        <small></small>
+                </div>
+                <button type="submit" class="form-btn" id="enviar_consulta">Enviar</button>
             </form>
         </div>
 
@@ -162,8 +181,9 @@
     <div class="add-modal"></div>
 
 
-    <script src="datos.js"></script>
-    <script src="main.js"></script>
+    <script src="./js/datos.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/consulta.js"></script>
 
 </body>
 

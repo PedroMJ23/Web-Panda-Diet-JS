@@ -166,9 +166,7 @@ const ocultarOverlay = () => {
 
 
 const registroExitoso = () => {
-    //checkeoDeNombre();
-
-
+    
     registrarme.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -177,22 +175,10 @@ const registroExitoso = () => {
             form.reset();
         }
 
-
-
-
-        // checkeoDeNombre();
-        // checkeoDeApellido();
-        // checkeoDeTelefono();
-        // form.reset();
-
     })
     menuIcono.addEventListener('click', toggleMenu)
     overlay.addEventListener('click', ocultarAlClickear);
     window.addEventListener('scroll', ocultarOverlay);
-
-
-    // window.addEventListener('DOMContentLoaded', mensajeDeRegistro);
-
 
 }
 registroExitoso();
