@@ -44,17 +44,17 @@ const formValido = (input) => {
 
 const checkeoDeNombre = () => {
     let validez = false;
-    const min = 3;
-    const max = 23;
+    const min = 2;
+    const max = 24;
 
     const nombreId = nombre.value.trim();
 
     if (esUnNumero(nombreId)) {
-        formError(nombre, 'Ingrese nombre sólo con letras')
+        formError(nombre, 'Ingrese su nombre sólo con letras.')
     } else if (inputVacio(nombreId)) {
-        formError(nombre, 'Ingrese su nombre')
+        formError(nombre, 'Ingrese su nombre.')
     } else if (!longitud(nombreId.length, min, max)) {
-        formError(nombre, `El nombre debe contener de ${min} a ${max} caracteres `)
+        formError(nombre, `El nombre debe contener de 3 a 23 caracteres.`)
     } else {
         formValido(nombre);
         validez = true;
@@ -64,17 +64,17 @@ const checkeoDeNombre = () => {
 
 const checkeoDeApellido = () => {
     let validez = false;
-    const min = 3;
-    const max = 23;
+    const min = 2;
+    const max = 24;
 
     const apellidoId = apellido.value.trim();
 
     if (esUnNumero(apellidoId)) {
-        formError(apellido, 'Ingrese su apellido sólo con letras')
+        formError(apellido, 'Ingrese su apellido sólo con letras.')
     } else if (inputVacio(apellidoId)) {
-        formError(apellido, 'Ingrese su spellido')
+        formError(apellido, 'Ingrese su spellido.')
     } else if (!longitud(apellidoId.length, min, max)) {
-        formError(apellido, `El apellido debe contener de ${min} a ${max} caracteres `)
+        formError(apellido, `El apellido debe contener de 3 a 23 caracteres.`)
     } else {
         formValido(apellido);
         validez = true;
@@ -84,16 +84,16 @@ const checkeoDeApellido = () => {
 
 const checkeoDeTelefono = () => {
     let validez = false;
-    const min = 6;
-    const max = 12;
+    const min = 9;
+    const max = 13;
 
     const telefonoId = telefono.value.trim();
     if (inputVacio(telefonoId)) {
-        formError(telefono, 'Debe ingresar su telefono')
+        formError(telefono, 'Debe ingresar su telefono.')
     } else if (!esUnNumero(telefonoId)) {
-        formError(telefono, 'Debe ingresar sólo números')
+        formError(telefono, 'Debe ingresar sólo números.')
     } else if (!longitud(telefonoId.length, min, max)) {
-        formError(telefono, `La cantidad de caractéres deben ser entre 7 y 11`)
+        formError(telefono, `La cantidad de caractéres deben ser entre 10 y 14.`)
     } else {
         formValido(telefono)
         validez = true;
@@ -104,17 +104,16 @@ const checkeoDeTelefono = () => {
 
 const checkeoDeEmail = () => {
     let validez = false;
-    const min = 12;
+    const min = 9;
     const max = 31;
-
     const emailId = email.value.trim();
 
     if (inputVacio(emailId)) {
-        formError(email, 'Debe ingresar su email')
+        formError(email, 'Debe ingresar su email.')
     } else if (!emailValido(emailId)) {
-        formError(email, 'Debe ingresar un email valido')
+        formError(email, 'Debe ingresar un email válido.')
     } else if (!longitud(emailId.length, min, max)) {
-        formError(email, `La cantidad de caractéres deben ser entre 13 y 30`)
+        formError(email, `La cantidad de caractéres deben ser entre 10 y 30.`)
     } else {
         formValido(email)
         validez = true;
@@ -128,9 +127,9 @@ const checkeoDeContraseña = () => {
     const contraseñaId = contraseña.value.trim();
 
     if (inputVacio(contraseñaId)) {
-        formError(contraseña, 'Debe ingresar su contraseña')
+        formError(contraseña, 'Debe ingresar su contraseña.')
     } else if (!contraseñaValida(contraseñaId)) {
-        formError(contraseña, 'La contraseña debe teenr al menos 8 caracteres, una mayuscula, una minuscula y un simbolo.')
+        formError(contraseña, 'La contraseña debe tener al menos 8 caracteres, una mayuscula, una minuscula y un simbolo.')
     } else {
         formValido(contraseña)
         validez = true;
