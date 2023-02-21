@@ -33,8 +33,8 @@ const formValido = (input) => {
 
 const checkeoDeNombre = () => {
     let validez = false;
-    const min = 3;
-    const max = 13;
+    const min = 2;
+    const max = 14;
 
     const nombreId = inputNombre.value.trim();
 
