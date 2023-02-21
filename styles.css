@@ -5,7 +5,6 @@
     text-decoration: none;
     list-style: none;
     font-family: Arial, Helvetica, sans-serif;
-    /* text-transform: capitalize; */
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
 }
@@ -163,9 +162,6 @@
     height: 100vh;
     width: 100%;
     z-index: -1;
-    /*Para que quede por encima del resto de las cosas*/
-
-    /*Efecto de Glassmorphismo*/
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(5px);
@@ -248,7 +244,6 @@ header .navbar ul li #home {
 
 header .navbar ul li a:hover {
     background: rgb(14, 142, 26);
-    /*background: #333;*/
     color: #fff;
 
 }
@@ -258,8 +253,6 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* padding: 10px; */
-    /* margin: 5px 20px; */
 }
 
 .portada {
@@ -294,7 +287,6 @@ main {
     height: 700px;
     width: 100%;
     z-index: 500;
-    /* margin: 15px 7%; */
 }
 
 .sobre_nosotros {
@@ -383,10 +375,6 @@ main {
     cursor: pointer;
 }
 
-/* .categorias_filtro:hover {
-    background: rgb(14, 142, 26);
-} */
-
 .nuestros_productos {
     display: flex;
     justify-content: center;
@@ -406,8 +394,6 @@ main {
     gap: 40px;
     flex-wrap: wrap;
     max-width: 85%;
-    /*max-width: 1200px;*/
-
 }
 
 .icono_añadir {
@@ -419,17 +405,12 @@ main {
     border: 1px solid white;
     margin: 5px;
     background: linear-gradient(0deg, rgba(17, 136, 15, 1) 0%, rgba(43, 251, 224, 1) 100%);
-
-    /* color: white; */
     color: black;
 }
 
 .productos {
     height: 350px;
     width: 325px;
-    /* background-color: red; */
-    /* border: 3px solid rgb(14, 142, 26); */
-    /* border-radius: 3em; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -450,7 +431,6 @@ main {
     height: 340px;
     width: 285px;
     overflow: hidden;
-    /* background-color: red; */
 }
 
 
@@ -466,7 +446,6 @@ main {
     align-items: center;
     justify-content: space-between;
     width: 90%;
-    /* gap: 25px; */
 }
 
 .item_nombre-precio {
@@ -530,6 +509,30 @@ main {
 
 }
 
+.horarios_de_atencion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 600;
+    gap: 10px;
+    border-top: 1px solid black;
+    width: 80vw;
+    padding: 10px 0px;
+}
+
+#direccion {
+    border: 1px solid rgb(14, 142, 26);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+#direccion:hover {
+    background: linear-gradient(0deg, rgba(17, 136, 15, 1) 0%, rgba(43, 251, 224, 1) 100%);
+    color: black;
+}
+
 .contacto {
     display: flex;
     align-items: flex-start;
@@ -539,7 +542,6 @@ main {
     max-width: 80%;
     font-size: 20px;
     gap: 40px;
-    margin: 15px auto;
     border-top: 1px solid black;
 }
 
@@ -561,15 +563,16 @@ main {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-   
+
 }
 
 .info-de-contacto input {
     height: 35px;
     width: 350px;
- 
+
 }
-.consulta_inputs{
+
+.consulta_inputs {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -605,7 +608,6 @@ footer {
     min-height: 100px;
     width: 100%;
     background: rgb(18, 136, 30);
-    /* background: linear-gradient(0deg, rgba(17,136,15,1) 0%, rgba(43,251,224,1) 100%); */
 }
 
 .redes_div {
@@ -614,7 +616,6 @@ footer {
     justify-content: space-between;
     min-width: 90%;
     padding: 5px;
-    /* background-color: red; */
     flex-wrap: wrap;
 
 }
@@ -777,7 +778,6 @@ footer {
 
     .sobre_nosotros-slider {
         width: 85%;
-        /* min-height: 300px; */
         max-height: 350px;
     }
 
@@ -829,10 +829,6 @@ footer {
         gap: 5px;
         flex-wrap: nowrap;
         padding: 0px;
-        /* background-color: red; */
-        /* max-height: 250px;
-        margin: 5px; */
-
     }
 
     .carrito-contenedor p {
@@ -850,7 +846,6 @@ footer {
     }
 
     .portada {
-        /* background-color: red; */
         height: 300px;
         width: 100%;
         margin: 75px auto 10px auto;
@@ -880,7 +875,6 @@ footer {
         height: 200px;
         width: 200px;
         overflow: hidden;
-        /*background-color: red;*/
     }
 
     #img_card_ {

@@ -7,7 +7,7 @@ const listaDeCategorias = document.querySelectorAll('.categorias_filtro');
 const verMas = document.querySelector(".ver_mas");
 const buyBtn = document.querySelector(".btn-buy");
 const burbujaDelCarro = document.querySelector(".burbuja");
-const cartBtn = document.querySelector(".icono_carrito");
+const cartBtn = document.querySelector(".cart-label");
 const cartMenu = document.querySelector(".cart");
 const barsBtn = document.querySelector(".icono_menu");
 const barsMenu = document.querySelector(".nav_ul");
@@ -70,9 +70,7 @@ const renderFilterProducts = (category) => {
 const renderProducts = (index = 0, category = null) => {
     if (!category) {
         renderDividedProducts(index)
-        console.log('renderizando todo')
     } else {
-        //renderizar productos por categorias
         renderFilterProducts(category);
     }
 
@@ -117,7 +115,6 @@ const aplicarFiltro = (e) => {
     if (e.target.classList.contains('categorias')) return;
     const clickedCategory = e.target.dataset.categoria;
     changeFilterState(clickedCategory)
-    // console.log('dataSet:', clickedCategory)
     if (!clickedCategory) {
         products.innerHTML = '';
         renderProducts();
@@ -140,10 +137,6 @@ const toggleMenu = () => {
         return
     }
     overlay.classList.toggle('show-overlay')
-
-
-
-    console.log('tocando el boton de menu')
 }
 
 const toggleCart = () => {
@@ -154,35 +147,27 @@ const toggleCart = () => {
         return
     }
     overlay.classList.toggle('show-overlay')
-
 }
 
 const ocultarAlAClickear = (e) => {
     if (!e.target.classList.contains('nav_a')) return;
     barsMenu.classList.remove("nav_ul_show");
     overlay.classList.remove('show-overlay');
-
 }
 const ocultarAlClickear = () => {
     cartMenu.classList.remove('cart_show');
     barsMenu.classList.remove("nav_ul_show");
     overlay.classList.remove('show-overlay');
-
 }
 const ocultarOverlay = () => {
     if (
-        !barsMenu.classList.contains('nav_ul_show') && // si no se muestra el menu
-        !cartMenu.classList.contains('cart_show')      // si no se muestra el carro
-    ) return;                                          //no hagas nada
+        !barsMenu.classList.contains('nav_ul_show') &&
+        !cartMenu.classList.contains('cart_show')
+    ) return;
     barsMenu.classList.remove("nav_ul_show");
     cartMenu.classList.remove("cart_show");
     overlay.classList.remove("show-overlay");
 
-}
-
-function iniciarChatear() {
-    var productswsp = ['zapato', 'mesa', 'silla']
-    window.location.href = 'https://wa.me/+54221533900930/?text=Hola.Quiero hacer un pedido...' + '' + productswsp[0]
 }
 
 const renderizarProductosDelCarrito = ({ id, nombre, precio, categoria, imagen, cantidad }) => {
@@ -213,32 +198,20 @@ const renderizarProductosDelCarrito = ({ id, nombre, precio, categoria, imagen, 
 const renderizarCarrito = () => {
     if (!cart.length) {
         productsCart.innerHTML = `<span>No seleccionaste ningún producto </span>`;
-        /*comprar.classList.remove('comprar')
-        comprar.classList.add('desabilitado')
-        borrarTodo.classList.remove('borrar_todo-btn')
-        borrarTodo.classList.add('desabilitado')*/
-
-        //console.log('no hay nada en el carrito')
         return;
     }
     productsCart.innerHTML = cart.map(renderizarProductosDelCarrito).join('');
-    /*comprar.classList.remove('desabilitado')
-    comprar.classList.add('comprar')
-    borrarTodo.classList.remove('desabilitado')
-    borrarTodo.classList.add('borrar_todo-btn')*/
 }
 
 const obtenerElPrecioTotal = () => {
     return cart.reduce(
         (accum, currentValue) =>
             accum + Number(currentValue.precio) * currentValue.cantidad,
-        0
-    );
+        0);
 }
 
 const mostrarElTotal = () => {
     carritoPrecioTotal.innerHTML = `$${obtenerElPrecioTotal().toFixed(2)} ARS`;
-
 }
 
 const ExisteElProducto = ({ id }) => cart.some(item => item.id === id);
@@ -279,14 +252,10 @@ const añadirAlCarrito = (e) => {
     const productoParaElCarrito = { id, nombre, precio, imagen, cantidad };
 
     if (ExisteElProducto(productoParaElCarrito)) {
-        //añadimos otra unidad del producto seleccionado
         añadirUnidadAlProducto(productoParaElCarrito)
-        //mostramos el mensaje de que fue añadido
         mostrarMensajeDeCompra('Añadiste una unidad más al carrito')
     } else {
-        //agregamos el producto al carrito
         productoDelCarrito(productoParaElCarrito)
-        //mostramos el msj de que el producto fue agregado
         mostrarMensajeDeCompra('El producto se ha agregado con éxito')
     }
 
@@ -302,7 +271,6 @@ const desabilitarBtn = (button) => {
         button.classList.remove('comprar')
         button.classList.remove('borrar_todo-btn')
         button.classList.add('desabilitado')
-        // console.log('btn desabilitado')
     } else {
         button.classList.remove('desabilitado');
         button.classList.add('comprar')
@@ -368,13 +336,9 @@ const restarCantidad = (id) => {
 const cambiarCantidad = (e) => {
 
     if (e.target.classList.contains('items_btn-suma')) {
-        //console.log('botn de suma')
         sumarCantidadBtn(e.target.dataset.id)
-        // console.log(e.target.dataset.id)
     } else if (e.target.classList.contains('items_btn-resta')) {
         restarCantidad(e.target.dataset.id)
-        //console.log('botn de resta')
-
     }
     checkProd();
 
@@ -398,7 +362,6 @@ function init() {
     categorias.addEventListener('click', aplicarFiltro);
     barsBtn.addEventListener('click', toggleMenu);
     cartBtn.addEventListener('click', toggleCart);
-    //iconoPandaNav.addEventListener('click', toggleBody);
 
     barsMenu.addEventListener('click', ocultarAlAClickear);
     overlay.addEventListener('click', ocultarAlClickear);

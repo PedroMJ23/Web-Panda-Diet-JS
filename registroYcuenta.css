@@ -5,11 +5,12 @@
     text-decoration: none;
     list-style: none;
     font-family: Arial, Helvetica, sans-serif;
-    /* text-transform: capitalize; */
     scroll-behavior: smooth;
     scroll-padding-top: 75px;
 }
-.registro_container, .form_de_registro{
+
+.registro_container,
+.form_de_registro {
     margin-top: 100px;
     display: flex;
     justify-content: center;
@@ -18,29 +19,33 @@
     gap: 15px;
     font-size: 18px;
 }
-input{
+
+input {
     font-size: 18px;
     border-radius: 5px;
     padding: 5px;
     margin: 3px;
 }
-.form_inputs{
+
+.form_inputs {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.valido{
+.valido {
     border: green 2px solid;
 }
-.invalido{
+
+.invalido {
     border: red 2px solid;
 }
-.error_text{
+
+.error_text {
     color: red;
     max-width: 350px;
-    
+
 }
 
 .nav_ul_show {
@@ -61,6 +66,7 @@ input{
     border-radius: 0px 0px 15px 15px;
 
 }
+
 .overlay {
     position: absolute;
     top: 83px;
@@ -68,9 +74,6 @@ input{
     height: 100vh;
     width: 100%;
     z-index: -1;
-    /*Para que quede por encima del resto de las cosas*/
-
-    /*Efecto de Glassmorphismo*/
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(5px);
@@ -81,26 +84,30 @@ input{
 .show-overlay {
     display: block;
 }
-.cuenta_existente{
+
+.cuenta_existente {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.cuenta_existente a{
+
+.cuenta_existente a {
     padding: 5px;
     margin: 5px;
     border-radius: 10px;
     border: 2px solid green;
 }
-.crear_cuenta{
+
+.crear_cuenta {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
 }
-.crear_cuenta a{
+
+.crear_cuenta a {
     padding: 5px;
     margin: 5px;
     border-radius: 10px;
@@ -108,17 +115,21 @@ input{
 }
 
 @media screen and (max-width: 992px) {
-    header{
+    header {
         padding: 0px 1%;
     }
+
     .icono_menu {
         display: block;
         margin: auto 10px;
     }
-    .registro_container{
+
+    .registro_container {
         margin-top: 25px;
     }
-    .registro_container, .form_de_registro{
+
+    .registro_container,
+    .form_de_registro {
         font-size: 15px;
     }
 
@@ -126,6 +137,7 @@ input{
     .nav_ul {
         display: none;
     }
+
     .nav_ul_show {
         display: flex;
         align-items: center;
@@ -142,16 +154,19 @@ input{
         border-bottom: 3px solid rgb(14, 142, 26);
         border-right: 3px solid rgb(14, 142, 26);
         border-radius: 0px 0px 15px 15px;
-        
+
 
     }
-    
-    
-    
+
+
+
 
 }
+
 @media screen and (max-width: 575px) {
-    .registro_container, .form_de_registro{
+
+    .registro_container,
+    .form_de_registro {
         font-size: 15px;
     }
 

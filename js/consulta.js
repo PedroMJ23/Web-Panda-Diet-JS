@@ -74,7 +74,7 @@ const checkeoDeTelefono = () => {
 
 const checkeoDeEmail = () => {
     let validez = false;
-    const min = 12;
+    const min = 10;
     const max = 31;
 
     const emailId = inputEmail.value.trim();
@@ -84,7 +84,7 @@ const checkeoDeEmail = () => {
     } else if (!emailValido(emailId)) {
         formError(inputEmail, 'Debe ingresar un email valido.')
     } else if (!longitud(emailId.length, min, max)) {
-        formError(inputEmail, `La cantidad de caractéres deben ser entre 13 y 30.`)
+        formError(inputEmail, `La cantidad de caractéres deben ser entre 11 y 30.`)
     } else {
         formValido(inputEmail)
         validez = true;
