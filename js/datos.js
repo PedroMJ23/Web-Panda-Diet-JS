@@ -97,7 +97,7 @@ const todosLosDatos = [
         nombre: 'Zucaritas Diet',
         precio: 800,
         categoria: 'Harinas',
-        imagen: './assets/imagenes/harina-integral.jpg',
+        imagen: './assets/imagenes/zucaritaDiet.jpg',
         cantidad: 0,
     }, {
         id: 15,
@@ -118,14 +118,14 @@ const todosLosDatos = [
         nombre: 'Pan de salvado',
         precio: 500,
         categoria: 'Harinas',
-        imagen: './assets/imagenes/harina-de-algarroba.jpg',
+        imagen: './assets/imagenes/panDeSalvadoDiet.jpg',
         cantidad: 0,
     }, {
         id: 18,
-        nombre: 'Pan de salvado',
+        nombre: 'Harina de Avena',
         precio: 500,
         categoria: 'Harinas',
-        imagen: './assets/imagenes/harina-de-algarroba.jpg',
+        imagen: './assets/imagenes/harinaDeAvena.jpg',
         cantidad: 0,
     }, {
         id: 19,
