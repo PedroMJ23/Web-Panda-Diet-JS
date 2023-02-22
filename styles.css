@@ -536,6 +536,7 @@ main {
     border-radius: 5px;
     padding: 3px;
     color: blue;
+    font-style: italic;
 }
 
 #direccion:hover {
