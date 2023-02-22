@@ -355,7 +355,8 @@ main {
 .slider_text p {
     font-size: 25px;
 }
-.categorias_motrar{
+
+.categorias_motrar {
     background: rgb(14, 142, 26);
     color: #fff;
     width: 90vw;
@@ -532,9 +533,9 @@ main {
 }
 
 #direccion {
-    border: 1px solid rgb(14, 142, 26);
     border-radius: 5px;
     padding: 3px;
+    color: blue;
 }
 
 #direccion:hover {
@@ -806,7 +807,8 @@ footer {
         max-width: 100%;
         gap: 20px;
     }
-    .contacto-encabezado{
+
+    .contacto-encabezado {
         width: 70%;
     }
 
@@ -924,10 +926,11 @@ footer {
         width: 100%;
         height: 100%;
     }
-    .contacto{
+
+    .contacto {
         gap: 15px
     }
-   
+
     .contacto-encabezado p {
         display: none;
     }
