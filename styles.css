@@ -524,12 +524,14 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
     font-size: 18px;
     font-weight: 600;
     gap: 10px;
     border-top: 1px solid black;
     width: 80vw;
     padding: 10px 0px;
+    margin: auto;
 }
 
 #direccion {
