@@ -577,7 +577,6 @@ main {
 .info-de-contacto input {
     height: 35px;
     width: 350px;
-
 }
 
 .consulta_inputs {
@@ -807,6 +806,9 @@ footer {
         max-width: 100%;
         gap: 20px;
     }
+    .contacto-encabezado{
+        width: 70%;
+    }
 
     .redes1 {
         margin: 0px 30px;
@@ -922,7 +924,10 @@ footer {
         width: 100%;
         height: 100%;
     }
-
+    .contacto{
+        gap: 15px
+    }
+   
     .contacto-encabezado p {
         display: none;
     }
