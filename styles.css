@@ -121,6 +121,8 @@
 .carrito-contenedor {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-wrap: nowrap;
     gap: 10px;
     margin: 10px 5px;
@@ -849,6 +851,9 @@ footer {
 
     .carrito-contenedor p {
         padding: 2px;
+    }
+    .carrito-item{
+        max-width: 325px;
     }
 
     .desabilitado {
