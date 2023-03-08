@@ -87,7 +87,8 @@ const showMoreProducts = () => {
     }
 }
 
-changeActiveState = (selectedCategory) => {
+//
+const changeActiveState = (selectedCategory) => {
     const categories = [...listaDeCategorias];
     categories.forEach(categoryBtn => {
         if (categoryBtn.dataset.categoria !== selectedCategory) {
